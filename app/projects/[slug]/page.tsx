@@ -33,10 +33,11 @@ export async function generateStaticParams() {
 export default async function ProjectPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
+  const { slug } = await params
   const project: Project = await client.fetch(projectBySlugQuery, {
-    slug: params.slug,
+    slug,
   })
 
   if (!project) {

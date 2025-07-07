@@ -21,9 +21,9 @@ interface Project {
 export default async function ProjectsPage({
   searchParams,
 }: {
-  searchParams: { category?: string }
+  searchParams: Promise<{ category?: string }>
 }) {
-  const { category } = searchParams
+  const { category } = await searchParams
   
   const projects: Project[] = category
     ? await client.fetch(projectsByCategoryQuery, { category })
