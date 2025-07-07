@@ -14,7 +14,13 @@
       "Bash(git push:*)",
       "Bash(vercel:*)",
       "Bash(sanity init:*)",
-      "Bash(sanity:*)"
+      "Bash(sanity:*)",
+      "Bash(chmod:*)",
+      "Bash(./scripts/download-images.sh:*)",
+      "Bash(for img in *.jpg)",
+      "Bash(do echo \"Uploading $img...\")",
+      "Bash(done)",
+      "Bash(node:*)"
     ],
     "deny": []
   }
