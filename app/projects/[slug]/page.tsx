@@ -120,11 +120,11 @@ export default async function ProjectPage({
               value={project.content}
               components={{
                 types: {
-                  image: ({ value }: { value: SanityImage }) => (
+                  image: ({ value }: { value: SanityImage & { alt?: string } }) => (
                     <div className="relative aspect-video my-8">
                       <Image
                         src={urlForImage(value).url()}
-                        alt={value.alt || ' '}
+                        alt={value.alt || ''}
                         fill
                         className="object-cover rounded-lg"
                       />
