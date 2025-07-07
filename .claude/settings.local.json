@@ -21,7 +21,8 @@
       "Bash(do echo \"Uploading $img...\")",
       "Bash(done)",
       "Bash(node:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }
