@@ -120,7 +120,7 @@ export default function CodePage() {
       </section>
 
       <section className="py-20 text-center">
-        <h2 className="text-3xl font-bold mb-4">Let's Build Something Great</h2>
+        <h2 className="text-3xl font-bold mb-4">Let&apos;s Build Something Great</h2>
         <p className="text-xl text-muted-foreground mb-8">
           Ready to turn your ideas into reality?
         </p>

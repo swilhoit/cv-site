@@ -95,7 +95,7 @@ export default function DesignPage() {
       <section className="py-20 text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to Elevate Your Design?</h2>
         <p className="text-xl text-muted-foreground mb-8">
-          Let's create something beautiful together
+          Let&apos;s create something beautiful together
         </p>
         <Button size="lg" asChild>
           <Link href="/projects?category=design">

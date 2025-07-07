@@ -5,6 +5,7 @@ import { projectsQuery, projectsByCategoryQuery } from "@/sanity/lib/queries"
 import { urlForImage } from "@/sanity/lib/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import type { Image as SanityImage } from "sanity"
 
 interface Project {
   _id: string
@@ -12,7 +13,7 @@ interface Project {
   slug: { current: string }
   category: 'design' | 'coding' | 'marketing'
   description: string
-  mainImage: any
+  mainImage: SanityImage
   technologies: string[]
   publishedAt: string
 }

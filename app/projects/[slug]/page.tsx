@@ -8,6 +8,7 @@ import { urlForImage } from "@/sanity/lib/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, ExternalLink, Github } from "lucide-react"
+import type { Image as SanityImage } from "sanity"
 
 interface Project {
   _id: string
@@ -15,12 +16,12 @@ interface Project {
   slug: { current: string }
   category: 'design' | 'coding' | 'marketing'
   description: string
-  mainImage: any
-  gallery: any[]
+  mainImage: SanityImage
+  gallery: SanityImage[]
   technologies: string[]
   liveUrl?: string
   githubUrl?: string
-  content: any
+  content: unknown
   publishedAt: string
 }
 
@@ -117,7 +118,7 @@ export default async function ProjectPage({
               value={project.content}
               components={{
                 types: {
-                  image: ({ value }: any) => (
+                  image: ({ value }: { value: SanityImage }) => (
                     <div className="relative aspect-video my-8">
                       <Image
                         src={urlForImage(value).url()}

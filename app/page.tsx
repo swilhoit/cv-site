@@ -91,7 +91,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-20 text-center">
-        <h2 className="text-3xl font-bold mb-4">Let's Create Something Amazing</h2>
+        <h2 className="text-3xl font-bold mb-4">Let&apos;s Create Something Amazing</h2>
         <p className="text-xl text-muted-foreground mb-8">
           Ready to bring your ideas to life?
         </p>

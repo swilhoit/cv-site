@@ -122,7 +122,7 @@ export default function MarketingPage() {
       <section className="py-20 text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to Grow Your Business?</h2>
         <p className="text-xl text-muted-foreground mb-8">
-          Let's create a marketing strategy that delivers results
+          Let&apos;s create a marketing strategy that delivers results
         </p>
         <Button size="lg" asChild>
           <Link href="/projects?category=marketing">
