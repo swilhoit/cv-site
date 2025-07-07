@@ -11,6 +11,7 @@ const navigation = [
   { name: "Code", href: "/code" },
   { name: "Marketing", href: "/marketing" },
   { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
 ]
 
 export function Navigation() {
