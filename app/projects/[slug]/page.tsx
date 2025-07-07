@@ -21,7 +21,7 @@ interface Project {
   technologies: string[]
   liveUrl?: string
   githubUrl?: string
-  content: unknown
+  content: any[]
   publishedAt: string
 }
 
