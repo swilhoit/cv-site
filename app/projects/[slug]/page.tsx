@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { PortableText } from "@portabletext/react"
+import type { PortableTextBlock } from "@portabletext/types"
 import { client } from "@/sanity/lib/client"
 import { projectBySlugQuery, projectSlugsQuery } from "@/sanity/lib/queries"
 import { urlForImage } from "@/sanity/lib/image"
@@ -21,7 +22,7 @@ interface Project {
   technologies: string[]
   liveUrl?: string
   githubUrl?: string
-  content: any[]
+  content: PortableTextBlock[]
   publishedAt: string
 }
 
