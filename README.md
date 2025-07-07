@@ -78,4 +78,4 @@ Visit [http://localhost:3000/studio](http://localhost:3000/studio) to manage you
 - Update colors and theme in `tailwind.config.ts`
 - Modify navigation links in `components/navigation.tsx`
 - Customize service offerings in the static pages
-- Add more fields to the project schema in `sanity/schemas/project.ts`
+- Add more fields to the project schema in `sanity/schemas/project.ts`# Trigger rebuild
