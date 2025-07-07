@@ -20,7 +20,8 @@
       "Bash(for img in *.jpg)",
       "Bash(do echo \"Uploading $img...\")",
       "Bash(done)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }
