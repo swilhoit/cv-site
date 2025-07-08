@@ -82,7 +82,7 @@ export function HeroSection() {
             </Link>
           </Button>
           <Button variant="outline" asChild size="sm" className="text-xs font-light">
-            <Link href="#services">Learn More</Link>
+            <Link href="/about">Learn More</Link>
           </Button>
         </div>
       </section>
