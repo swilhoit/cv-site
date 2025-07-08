@@ -71,9 +71,9 @@ export function GridBackground() {
           const mouseDistY = y - mouseWorldY
           const mouseDist = Math.sqrt(mouseDistX * mouseDistX + mouseDistY * mouseDistY)
           
-          // Bubble parameters
-          const bubbleRadius = 250
-          const bubbleStrength = 120
+          // Bubble parameters - much larger
+          const bubbleRadius = 400
+          const bubbleStrength = 200
           
           // Calculate bubble effect
           let warpX = 0
@@ -82,22 +82,28 @@ export function GridBackground() {
           if (mouseDist < bubbleRadius) {
             // Inside the bubble radius
             const normalizedDist = mouseDist / bubbleRadius
-            // Create a smooth falloff - stronger push near center
-            const pushStrength = Math.pow(1 - normalizedDist, 2) * bubbleStrength
             
-            // Push lines away from cursor center
+            // Use cosine for smoother, rounder bubble shape
+            const cosineDistance = Math.cos(normalizedDist * Math.PI * 0.5)
+            const pushStrength = cosineDistance * cosineDistance * bubbleStrength
+            
+            // Calculate spherical bulge - more pronounced 3D effect
+            const sphericalHeight = Math.sqrt(1 - normalizedDist * normalizedDist) * bubbleStrength * 0.8
+            
+            // Push lines away from cursor center with spherical displacement
             if (mouseDist > 0) {
+              // Radial push component
               warpX = (mouseDistX / mouseDist) * pushStrength
               warpY = (mouseDistY / mouseDist) * pushStrength
+              
+              // Add vertical component for 3D bulge effect
+              // This makes the bubble appear to rise out of the grid
+              const bulgeAmount = sphericalHeight * 0.5
+              warpY -= bulgeAmount * (1 - normalizedDist)
             } else {
-              // At exact center, push straight up
-              warpY = -pushStrength
+              // At exact center, maximum vertical displacement
+              warpY = -bubbleStrength * 1.2
             }
-            
-            // Add slight spherical distortion for 3D bubble effect
-            const sphericalFactor = Math.sqrt(1 - normalizedDist * normalizedDist)
-            warpX *= (1 + sphericalFactor * 0.3)
-            warpY *= (1 + sphericalFactor * 0.3)
           }
           
           // Melting effect - more pronounced at edges
@@ -133,16 +139,17 @@ export function GridBackground() {
             
             if (nextMouseDist < bubbleRadius) {
               const nextNormalizedDist = nextMouseDist / bubbleRadius
-              const nextPushStrength = Math.pow(1 - nextNormalizedDist, 2) * bubbleStrength
+              const nextCosineDistance = Math.cos(nextNormalizedDist * Math.PI * 0.5)
+              const nextPushStrength = nextCosineDistance * nextCosineDistance * bubbleStrength
+              const nextSphericalHeight = Math.sqrt(1 - nextNormalizedDist * nextNormalizedDist) * bubbleStrength * 0.8
               
               if (nextMouseDist > 0) {
                 nextWarpX = (nextMouseDistX / nextMouseDist) * nextPushStrength
                 nextWarpY = (nextMouseDistY / nextMouseDist) * nextPushStrength
+                
+                const nextBulgeAmount = nextSphericalHeight * 0.5
+                nextWarpY -= nextBulgeAmount * (1 - nextNormalizedDist)
               }
-              
-              const nextSphericalFactor = Math.sqrt(1 - nextNormalizedDist * nextNormalizedDist)
-              nextWarpX *= (1 + nextSphericalFactor * 0.3)
-              nextWarpY *= (1 + nextSphericalFactor * 0.3)
             }
             
             const nextMeltY = Math.sin(time * 0.001 + (i + 1) * 0.3) * meltAmount
@@ -174,16 +181,17 @@ export function GridBackground() {
             
             if (nextMouseDist < bubbleRadius) {
               const nextNormalizedDist = nextMouseDist / bubbleRadius
-              const nextPushStrength = Math.pow(1 - nextNormalizedDist, 2) * bubbleStrength
+              const nextCosineDistance = Math.cos(nextNormalizedDist * Math.PI * 0.5)
+              const nextPushStrength = nextCosineDistance * nextCosineDistance * bubbleStrength
+              const nextSphericalHeight = Math.sqrt(1 - nextNormalizedDist * nextNormalizedDist) * bubbleStrength * 0.8
               
               if (nextMouseDist > 0) {
                 nextWarpX = (nextMouseDistX / nextMouseDist) * nextPushStrength
                 nextWarpY = (nextMouseDistY / nextMouseDist) * nextPushStrength
+                
+                const nextBulgeAmount = nextSphericalHeight * 0.5
+                nextWarpY -= nextBulgeAmount * (1 - nextNormalizedDist)
               }
-              
-              const nextSphericalFactor = Math.sqrt(1 - nextNormalizedDist * nextNormalizedDist)
-              nextWarpX *= (1 + nextSphericalFactor * 0.3)
-              nextWarpY *= (1 + nextSphericalFactor * 0.3)
             }
             
             const nextMeltX = Math.cos(time * 0.0008 + (j + 1) * 0.2) * meltAmount * 0.5
