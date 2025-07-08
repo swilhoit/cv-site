@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Image as SanityImage } from 'sanity'
@@ -18,6 +18,8 @@ interface ProjectMarqueeProps {
 
 export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   
   useEffect(() => {
     const scrollContainer = scrollRef.current
@@ -51,6 +53,10 @@ export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
       cancelAnimationFrame(animationId)
     }
   }, [])
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY })
+  }
   
   if (projects.length === 0) return null
   
@@ -60,6 +66,7 @@ export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
         ref={scrollRef}
         className="flex whitespace-nowrap"
         style={{ willChange: 'transform' }}
+        onMouseMove={handleMouseMove}
       >
         <div className="flex items-center gap-4">
           {projects.map((project) => (
@@ -67,6 +74,8 @@ export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
               key={project._id}
               href={`/projects/${project.slug?.current || project._id}`}
               className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-stone-50 dark:bg-stone-900/50 hover:bg-stone-100 dark:hover:bg-stone-800/50 transition-colors group"
+              onMouseEnter={() => setHoveredProject(project._id)}
+              onMouseLeave={() => setHoveredProject(null)}
             >
               <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
                 <Image
@@ -84,6 +93,30 @@ export function ProjectMarquee({ projects }: ProjectMarqueeProps) {
           ))}
         </div>
       </div>
+
+      {/* Hover Image */}
+      {hoveredProject && (
+        <div
+          className="fixed pointer-events-none z-50 transition-opacity duration-200"
+          style={{
+            left: mousePosition.x - 100,
+            top: mousePosition.y - 170,
+            opacity: hoveredProject ? 1 : 0,
+          }}
+        >
+          <div className="relative w-[200px] h-[133px] rounded-lg overflow-hidden shadow-2xl border border-border bg-background">
+            <Image
+              src={`https://picsum.photos/seed/${hoveredProject}/400/266`}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="200px"
+              priority
+            />
+          </div>
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-border"></div>
+        </div>
+      )}
     </div>
   )
 }
