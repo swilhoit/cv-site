@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
-import { AnimatedHeadline } from '@/components/animated-headline'
 
 export function HeroSection() {
   const [isHovered, setIsHovered] = useState(false)
@@ -68,8 +67,6 @@ export function HeroSection() {
             priority
           />
         </div>
-        
-        <AnimatedHeadline />
         
         <p className="text-xl sm:text-2xl font-extralight tracking-wide max-w-[700px]">
           Currently Product Design Lead at Geo.studio and CMO of Intercept.club • Living in Los Angeles
