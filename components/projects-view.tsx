@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { LayoutGrid, List } from "lucide-react"
+import { LayoutGrid, List, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { Image as SanityImage } from "sanity"
 
@@ -29,6 +29,7 @@ interface ProjectsViewProps {
 export function ProjectsView({ projects }: ProjectsViewProps) {
   const [viewMode, setViewMode] = useState<'table' | 'card'>('table')
   const [selectedTech, setSelectedTech] = useState<string | null>(null)
+  const [showFilters, setShowFilters] = useState(false)
 
   const categoryColors = {
     design: 'bg-amber-100 text-amber-900 dark:bg-amber-900/20 dark:text-amber-200',
@@ -56,39 +57,48 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
 
   return (
     <div>
-      {/* Tag Cloud */}
-      {allTechnologies.length > 0 && (
-        <div className="mb-8">
-          <h3 className="font-mono font-extralight uppercase tracking-[0.2em] text-xs mb-4">Filter by Technology</h3>
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSelectedTech(null)}
-              className={cn(
-                "px-3 py-1 text-xs font-mono font-extralight uppercase tracking-wider border rounded-full transition-colors",
-                selectedTech === null 
-                  ? "bg-primary text-primary-foreground" 
-                  : "bg-stone-50 dark:bg-stone-900/50 hover:bg-stone-100 dark:hover:bg-stone-800/50"
-              )}
-            >
-              All
-            </button>
-            {allTechnologies.map((tech) => (
+      {/* Filters Section */}
+      <div className="mb-8">
+        <button
+          onClick={() => setShowFilters(!showFilters)}
+          className="flex items-center gap-2 font-mono font-extralight uppercase tracking-[0.2em] text-xs mb-4 hover:text-primary transition-colors"
+        >
+          Filters
+          <ChevronDown className={cn("h-3 w-3 transition-transform", showFilters && "rotate-180")} />
+        </button>
+        
+        {showFilters && allTechnologies.length > 0 && (
+          <div className="animate-in slide-in-from-top-2 duration-200">
+            <div className="flex flex-wrap gap-2">
               <button
-                key={tech}
-                onClick={() => setSelectedTech(tech)}
+                onClick={() => setSelectedTech(null)}
                 className={cn(
                   "px-3 py-1 text-xs font-mono font-extralight uppercase tracking-wider border rounded-full transition-colors",
-                  selectedTech === tech 
+                  selectedTech === null 
                     ? "bg-primary text-primary-foreground" 
                     : "bg-stone-50 dark:bg-stone-900/50 hover:bg-stone-100 dark:hover:bg-stone-800/50"
                 )}
               >
-                {tech}
+                All
               </button>
-            ))}
+              {allTechnologies.map((tech) => (
+                <button
+                  key={tech}
+                  onClick={() => setSelectedTech(tech)}
+                  className={cn(
+                    "px-3 py-1 text-xs font-mono font-extralight uppercase tracking-wider border rounded-full transition-colors",
+                    selectedTech === tech 
+                      ? "bg-primary text-primary-foreground" 
+                      : "bg-stone-50 dark:bg-stone-900/50 hover:bg-stone-100 dark:hover:bg-stone-800/50"
+                  )}
+                >
+                  {tech}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="flex justify-end mb-6">
         <div className="flex gap-2">
