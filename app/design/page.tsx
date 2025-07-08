@@ -1,105 +1,57 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Figma, Palette, Sparkles, Users } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export default function DesignPage() {
   return (
-    <div className="container py-10">
-      <section className="max-w-4xl mx-auto text-center py-20">
-        <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-6">
-          Design That Inspires
+    <div className="container max-w-4xl py-10">
+      <section className="text-center py-32">
+        <h1 className="text-2xl sm:text-3xl font-extralight tracking-wide mb-8">
+          Design
         </h1>
-        <p className="text-xl text-muted-foreground font-light mb-8">
-          Creating visual experiences that connect with people and elevate brands
+        <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
+          Creating visual experiences that connect with people and elevate brands through thoughtful, user-centered design
         </p>
       </section>
 
-      <section className="py-12">
-        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-12">Design Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <Palette className="h-8 w-8 mb-3" />
-              <CardTitle>UI/UX Design</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="mb-4 font-light">
-                User-centered design that prioritizes functionality and aesthetics
-              </CardDescription>
-              <ul className="text-sm text-muted-foreground font-light space-y-2">
-                <li>• User interface design</li>
-                <li>• User experience research</li>
-                <li>• Wireframing and prototyping</li>
-                <li>• Design systems</li>
-              </ul>
-            </CardContent>
-          </Card>
+      <section className="py-20 space-y-16">
+        <div>
+          <h2 className="text-xs font-mono font-extralight uppercase tracking-[0.3em] mb-6">UI/UX Design</h2>
+          <p className="text-sm text-muted-foreground font-light leading-relaxed">
+            User interface design, experience research, wireframing and prototyping, design systems
+          </p>
+        </div>
 
-          <Card>
-            <CardHeader>
-              <Sparkles className="h-8 w-8 mb-3" />
-              <CardTitle>Brand Identity</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="mb-4 font-light">
-                Building memorable brands that stand out in the market
-              </CardDescription>
-              <ul className="text-sm text-muted-foreground font-light space-y-2">
-                <li>• Logo design</li>
-                <li>• Brand guidelines</li>
-                <li>• Visual identity systems</li>
-                <li>• Growth materials</li>
-              </ul>
-            </CardContent>
-          </Card>
+        <div>
+          <h2 className="text-xs font-mono font-extralight uppercase tracking-[0.3em] mb-6">Brand Identity</h2>
+          <p className="text-sm text-muted-foreground font-light leading-relaxed">
+            Logo design, brand guidelines, visual identity systems, growth materials
+          </p>
+        </div>
 
-          <Card>
-            <CardHeader>
-              <Figma className="h-8 w-8 mb-3" />
-              <CardTitle>Digital Design</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="mb-4 font-light">
-                Modern digital designs for web and mobile platforms
-              </CardDescription>
-              <ul className="text-sm text-muted-foreground font-light space-y-2">
-                <li>• Website design</li>
-                <li>• Mobile app design</li>
-                <li>• Social media graphics</li>
-                <li>• Email templates</li>
-              </ul>
-            </CardContent>
-          </Card>
+        <div>
+          <h2 className="text-xs font-mono font-extralight uppercase tracking-[0.3em] mb-6">Digital Design</h2>
+          <p className="text-sm text-muted-foreground font-light leading-relaxed">
+            Website design, mobile app design, social media graphics, email templates
+          </p>
+        </div>
 
-          <Card>
-            <CardHeader>
-              <Users className="h-8 w-8 mb-3" />
-              <CardTitle>Design Consulting</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="mb-4 font-light">
-                Strategic design guidance to elevate your product
-              </CardDescription>
-              <ul className="text-sm text-muted-foreground font-light space-y-2">
-                <li>• Design audits</li>
-                <li>• UX strategy</li>
-                <li>• Design workshops</li>
-                <li>• Team training</li>
-              </ul>
-            </CardContent>
-          </Card>
+        <div>
+          <h2 className="text-xs font-mono font-extralight uppercase tracking-[0.3em] mb-6">Design Consulting</h2>
+          <p className="text-sm text-muted-foreground font-light leading-relaxed">
+            Design audits, UX strategy, design workshops, team training
+          </p>
         </div>
       </section>
 
-      <section className="py-20 text-center">
-        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-4">Ready to Elevate Your Design?</h2>
-        <p className="text-xl text-muted-foreground font-light mb-8">
+      <section className="py-32 text-center">
+        <h2 className="text-xs font-mono font-extralight uppercase tracking-[0.3em] mb-8">Ready to Elevate Your Design?</h2>
+        <p className="text-sm text-muted-foreground font-light leading-relaxed mb-12">
           Let&apos;s create something beautiful together
         </p>
-        <Button size="lg" asChild>
+        <Button size="sm" asChild className="text-xs">
           <Link href="/projects?category=design">
-            View Design Projects <ArrowRight className="ml-2 h-5 w-5" />
+            View Design Projects <ArrowRight className="ml-2 h-3 w-3" />
           </Link>
         </Button>
       </section>

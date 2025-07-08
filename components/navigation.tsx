@@ -30,7 +30,7 @@ export function Navigation() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container flex h-16 items-center justify-between">
         <Link href="/" className="font-mono font-extralight uppercase tracking-[0.3em] text-xs">
-          Portfolio
+          Sam Wilhoit
         </Link>
         
         <div className="flex items-center gap-6">
