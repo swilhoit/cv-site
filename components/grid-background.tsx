@@ -64,18 +64,41 @@ export function GridBackground() {
           const distFromCenter = Math.sqrt(x * x + y * y)
           const normalizedDist = distFromCenter / (gridBounds * 0.7)
           
-          // Mouse influence
+          // Mouse influence for bubble effect
           const mouseWorldX = mouseRef.current.x - centerX - driftX
           const mouseWorldY = mouseRef.current.y - centerY - driftY
           const mouseDistX = x - mouseWorldX
           const mouseDistY = y - mouseWorldY
           const mouseDist = Math.sqrt(mouseDistX * mouseDistX + mouseDistY * mouseDistY)
-          const mouseInfluence = Math.max(0, 1 - mouseDist / 300)
           
-          // Mouse warp effect - intensified
-          const warpAmount = mouseInfluence * mouseInfluence * 80 // Quadratic falloff for smoother warping
-          const warpX = mouseInfluence > 0 ? (mouseDistX / mouseDist) * warpAmount : 0
-          const warpY = mouseInfluence > 0 ? (mouseDistY / mouseDist) * warpAmount : 0
+          // Bubble parameters
+          const bubbleRadius = 250
+          const bubbleStrength = 120
+          
+          // Calculate bubble effect
+          let warpX = 0
+          let warpY = 0
+          
+          if (mouseDist < bubbleRadius) {
+            // Inside the bubble radius
+            const normalizedDist = mouseDist / bubbleRadius
+            // Create a smooth falloff - stronger push near center
+            const pushStrength = Math.pow(1 - normalizedDist, 2) * bubbleStrength
+            
+            // Push lines away from cursor center
+            if (mouseDist > 0) {
+              warpX = (mouseDistX / mouseDist) * pushStrength
+              warpY = (mouseDistY / mouseDist) * pushStrength
+            } else {
+              // At exact center, push straight up
+              warpY = -pushStrength
+            }
+            
+            // Add slight spherical distortion for 3D bubble effect
+            const sphericalFactor = Math.sqrt(1 - normalizedDist * normalizedDist)
+            warpX *= (1 + sphericalFactor * 0.3)
+            warpY *= (1 + sphericalFactor * 0.3)
+          }
           
           // Melting effect - more pronounced at edges
           const meltAmount = normalizedDist * 20
@@ -96,43 +119,83 @@ export function GridBackground() {
           
           // Draw horizontal lines with bezier curves for melting
           if (i < endGrid) {
-            const nextX = finalX + gridSize
+            // Calculate next point with bubble effect
+            const nextGridX = (i + 1) * gridSize
+            const nextGridY = j * gridSize
+            
+            // Apply bubble effect to next point
+            const nextMouseDistX = nextGridX - mouseWorldX
+            const nextMouseDistY = nextGridY - mouseWorldY
+            const nextMouseDist = Math.sqrt(nextMouseDistX * nextMouseDistX + nextMouseDistY * nextMouseDistY)
+            
+            let nextWarpX = 0
+            let nextWarpY = 0
+            
+            if (nextMouseDist < bubbleRadius) {
+              const nextNormalizedDist = nextMouseDist / bubbleRadius
+              const nextPushStrength = Math.pow(1 - nextNormalizedDist, 2) * bubbleStrength
+              
+              if (nextMouseDist > 0) {
+                nextWarpX = (nextMouseDistX / nextMouseDist) * nextPushStrength
+                nextWarpY = (nextMouseDistY / nextMouseDist) * nextPushStrength
+              }
+              
+              const nextSphericalFactor = Math.sqrt(1 - nextNormalizedDist * nextNormalizedDist)
+              nextWarpX *= (1 + nextSphericalFactor * 0.3)
+              nextWarpY *= (1 + nextSphericalFactor * 0.3)
+            }
+            
             const nextMeltY = Math.sin(time * 0.001 + (i + 1) * 0.3) * meltAmount
+            const nextWaveX = Math.sin(time * 0.0003 + (i + 1) * 0.1 + j * 0.05) * 5
             const nextWaveY = Math.cos(time * 0.0004 + j * 0.1 + (i + 1) * 0.05) * 5
-            const nextY = y + nextWaveY + nextMeltY
+            
+            const nextX = nextGridX + nextWaveX + meltX + nextWarpX
+            const nextY = nextGridY + nextWaveY + nextMeltY + nextWarpY
             
             ctx.beginPath()
             ctx.moveTo(finalX, finalY)
-            
-            // Add melting drip effect
-            const controlY = finalY + Math.sin(time * 0.002 + i * j) * meltAmount * 0.5
-            ctx.quadraticCurveTo(
-              finalX + gridSize * 0.5, 
-              controlY, 
-              nextX, 
-              nextY
-            )
+            ctx.lineTo(nextX, nextY)
             ctx.stroke()
           }
           
-          // Draw vertical lines with melting
+          // Draw vertical lines with bubble effect
           if (j < endGrid) {
-            const nextY = finalY + gridSize
+            // Calculate next point with bubble effect
+            const nextGridX = i * gridSize
+            const nextGridY = (j + 1) * gridSize
+            
+            // Apply bubble effect to next point
+            const nextMouseDistX = nextGridX - mouseWorldX
+            const nextMouseDistY = nextGridY - mouseWorldY
+            const nextMouseDist = Math.sqrt(nextMouseDistX * nextMouseDistX + nextMouseDistY * nextMouseDistY)
+            
+            let nextWarpX = 0
+            let nextWarpY = 0
+            
+            if (nextMouseDist < bubbleRadius) {
+              const nextNormalizedDist = nextMouseDist / bubbleRadius
+              const nextPushStrength = Math.pow(1 - nextNormalizedDist, 2) * bubbleStrength
+              
+              if (nextMouseDist > 0) {
+                nextWarpX = (nextMouseDistX / nextMouseDist) * nextPushStrength
+                nextWarpY = (nextMouseDistY / nextMouseDist) * nextPushStrength
+              }
+              
+              const nextSphericalFactor = Math.sqrt(1 - nextNormalizedDist * nextNormalizedDist)
+              nextWarpX *= (1 + nextSphericalFactor * 0.3)
+              nextWarpY *= (1 + nextSphericalFactor * 0.3)
+            }
+            
             const nextMeltX = Math.cos(time * 0.0008 + (j + 1) * 0.2) * meltAmount * 0.5
             const nextWaveX = Math.sin(time * 0.0003 + i * 0.1 + (j + 1) * 0.05) * 5
-            const nextX = x + nextWaveX + nextMeltX
+            const nextWaveY = Math.cos(time * 0.0004 + (j + 1) * 0.1 + i * 0.05) * 5
+            
+            const nextX = nextGridX + nextWaveX + nextMeltX + nextWarpX
+            const nextY = nextGridY + nextWaveY + meltY + nextWarpY
             
             ctx.beginPath()
             ctx.moveTo(finalX, finalY)
-            
-            // Add melting drip effect
-            const controlX = finalX + Math.cos(time * 0.002 + i * j) * meltAmount * 0.3
-            ctx.quadraticCurveTo(
-              controlX, 
-              finalY + gridSize * 0.5, 
-              nextX, 
-              nextY
-            )
+            ctx.lineTo(nextX, nextY)
             ctx.stroke()
           }
         }
