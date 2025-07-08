@@ -21,6 +21,8 @@ export function CustomCursor() {
 
     const handleMouseEnter = (e: MouseEvent) => {
       const target = e.target as HTMLElement
+      if (!target || typeof target.closest !== 'function') return
+      
       if (
         target.tagName === 'A' ||
         target.tagName === 'BUTTON' ||
