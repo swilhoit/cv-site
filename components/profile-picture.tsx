@@ -10,7 +10,7 @@ export function ProfilePicture() {
     <>
       {/* Top Marquee Banner - shown on hover */}
       <div
-        className={`fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-pink-100 to-blue-100 dark:from-pink-900/20 dark:to-blue-900/20 transition-all duration-500 overflow-hidden border-b border-border ${
+        className={`fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-pink-100 to-blue-100 dark:from-rose-950/10 dark:to-amber-950/10 transition-all duration-500 overflow-hidden border-b border-border ${
           isHovered ? 'h-10' : 'h-0'
         }`}
       >
