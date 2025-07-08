@@ -21,8 +21,8 @@ export default defineConfig({
     productionUrl: async (prev, context) => {
       const {document} = context
       
-      if (document._type === 'project' && document.slug?.current) {
-        return `${siteUrl}/projects/${document.slug.current}`
+      if (document._type === 'project' && (document as any).slug?.current) {
+        return `${siteUrl}/projects/${(document as any).slug.current}`
       }
       
       return prev
