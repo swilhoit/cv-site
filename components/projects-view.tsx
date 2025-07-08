@@ -27,7 +27,7 @@ interface ProjectsViewProps {
 }
 
 export function ProjectsView({ projects }: ProjectsViewProps) {
-  const [viewMode, setViewMode] = useState<'table' | 'card'>('table')
+  const [viewMode, setViewMode] = useState<'table' | 'card'>('card')
   const [selectedTech, setSelectedTech] = useState<string | null>(null)
   const [showFilters, setShowFilters] = useState(false)
 
