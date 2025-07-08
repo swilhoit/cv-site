@@ -3,6 +3,6 @@
 {"_id":"project-code-1","_type":"project","slug":{"_type":"slug","current":"ecommerce-platform-nextjs"}}
 {"_id":"project-code-2","_type":"project","slug":{"_type":"slug","current":"realtime-chat-app"}}
 {"_id":"project-code-3","_type":"project","slug":{"_type":"slug","current":"api-saas-platform"}}
-{"_id":"project-marketing-1","_type":"project","slug":{"_type":"slug","current":"seo-campaign-local-business"}}
-{"_id":"project-marketing-2","_type":"project","slug":{"_type":"slug","current":"social-media-tech-startup"}}
-{"_id":"project-marketing-3","_type":"project","slug":{"_type":"slug","current":"content-marketing-elearning"}}
+{"_id":"project-growth-1","_type":"project","slug":{"_type":"slug","current":"seo-campaign-local-business"}}
+{"_id":"project-growth-2","_type":"project","slug":{"_type":"slug","current":"social-media-tech-startup"}}
+{"_id":"project-growth-3","_type":"project","slug":{"_type":"slug","current":"content-growth-elearning"}}

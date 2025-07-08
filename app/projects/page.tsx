@@ -7,7 +7,7 @@ interface Project {
   _id: string
   title: string
   slug: { current: string }
-  category: 'design' | 'coding' | 'marketing'
+  category: 'design' | 'coding' | 'growth'
   description: string
   mainImage: SanityImage
   technologies: string[]
@@ -32,7 +32,7 @@ export default async function ProjectsPage({
           {category ? `${category.charAt(0).toUpperCase() + category.slice(1)} Projects` : 'All Projects'}
         </h1>
         <p className="text-sm text-muted-foreground font-light leading-relaxed">
-          Explore my latest work across design, development, and marketing
+          Explore my latest work across design, development, and growth
         </p>
       </section>
 

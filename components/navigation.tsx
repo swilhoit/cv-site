@@ -13,7 +13,6 @@ import {
 import { ChevronDown } from "lucide-react"
 
 const navigation = [
-  { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ]
@@ -21,7 +20,7 @@ const navigation = [
 const services = [
   { name: "Design", href: "/design" },
   { name: "Code", href: "/code" },
-  { name: "Marketing", href: "/marketing" },
+  { name: "Growth", href: "/growth" },
 ]
 
 export function Navigation() {

@@ -35,7 +35,7 @@ curl -L "https://images.unsplash.com/photo-1553830591-2f39e38a013c?w=1200&h=800&
 curl -L "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop" -o scripts/images/social-media-1.jpg
 curl -L "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=800&fit=crop" -o scripts/images/social-media-2.jpg
 
-# Content marketing images
-curl -L "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop" -o scripts/images/content-marketing-1.jpg
+# Content growth images
+curl -L "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop" -o scripts/images/content-growth-1.jpg
 
 echo "Images downloaded successfully!"

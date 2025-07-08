@@ -1,14 +1,14 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Code2, Megaphone, Palette } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export default function HomePage() {
   return (
     <div className="container py-10">
       <section className="flex flex-col items-center text-center space-y-12 py-32">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extralight tracking-wide">
-          Designer. Developer. Marketer.
+          Designer. Developer. Growth Strategist.
         </h1>
         <p className="text-sm text-muted-foreground max-w-[600px] font-light leading-loose">
           Bridging creativity and technology to build meaningful digital experiences
@@ -30,8 +30,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
             <CardHeader className="pt-8">
-              <Palette className="h-6 w-6 mb-6" />
-              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm">Design</CardTitle>
+              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm mb-3">Design</CardTitle>
               <CardDescription className="text-xs leading-relaxed mt-2">
                 Creating beautiful, intuitive interfaces that delight users
               </CardDescription>
@@ -50,8 +49,7 @@ export default function HomePage() {
 
           <Card>
             <CardHeader className="pt-8">
-              <Code2 className="h-6 w-6 mb-6" />
-              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm">Development</CardTitle>
+              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm mb-3">Development</CardTitle>
               <CardDescription className="text-xs leading-relaxed mt-2">
                 Building fast, scalable applications with modern technologies
               </CardDescription>
@@ -70,10 +68,9 @@ export default function HomePage() {
 
           <Card>
             <CardHeader className="pt-8">
-              <Megaphone className="h-6 w-6 mb-6" />
-              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm">Marketing</CardTitle>
+              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm mb-3">Growth</CardTitle>
               <CardDescription className="text-xs leading-relaxed mt-2">
-                Driving growth through strategic digital marketing
+                Driving growth through strategic digital initiatives
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -81,8 +78,8 @@ export default function HomePage() {
                 SEO, content strategy, social media, and campaigns that connect with audiences
               </p>
               <Button variant="link" className="mt-4 p-0 text-xs font-light" asChild>
-                <Link href="/marketing">
-                  See Marketing Work <ArrowRight className="ml-1 h-3 w-3" />
+                <Link href="/growth">
+                  See Growth Work <ArrowRight className="ml-1 h-3 w-3" />
                 </Link>
               </Button>
             </CardContent>

@@ -7,6 +7,10 @@ const nextConfig = {
         hostname: 'cdn.sanity.io',
         pathname: '/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
     ],
   },
   // Ensure environment variables are available at build time

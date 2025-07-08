@@ -29,7 +29,7 @@ export default defineType({
         list: [
           { title: 'Design', value: 'design' },
           { title: 'Coding', value: 'coding' },
-          { title: 'Marketing', value: 'marketing' },
+          { title: 'Growth', value: 'growth' },
         ],
       },
       validation: (Rule) => Rule.required(),

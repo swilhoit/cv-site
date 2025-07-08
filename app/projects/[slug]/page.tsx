@@ -15,7 +15,7 @@ interface Project {
   _id: string
   title: string
   slug: { current: string }
-  category: 'design' | 'coding' | 'marketing'
+  category: 'design' | 'coding' | 'growth'
   description: string
   mainImage: SanityImage
   gallery: SanityImage[]
@@ -48,7 +48,7 @@ export default async function ProjectPage({
   const categoryColors = {
     design: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
     coding: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-    marketing: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+    growth: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
   }
 
   return (

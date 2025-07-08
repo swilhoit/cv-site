@@ -27,16 +27,16 @@ const imageMappings = [
   { file: 'api-code-1.jpg', projectId: 'project-code-3', field: 'mainImage' },
   
   // Marketing Project 1
-  { file: 'seo-1.jpg', projectId: 'project-marketing-1', field: 'mainImage' },
-  { file: 'seo-2.jpg', projectId: 'project-marketing-1', field: 'gallery.0' },
-  { file: 'seo-3.jpg', projectId: 'project-marketing-1', field: 'gallery.1' },
+  { file: 'seo-1.jpg', projectId: 'project-growth-1', field: 'mainImage' },
+  { file: 'seo-2.jpg', projectId: 'project-growth-1', field: 'gallery.0' },
+  { file: 'seo-3.jpg', projectId: 'project-growth-1', field: 'gallery.1' },
   
   // Marketing Project 2
-  { file: 'social-media-1.jpg', projectId: 'project-marketing-2', field: 'mainImage' },
-  { file: 'social-media-2.jpg', projectId: 'project-marketing-2', field: 'gallery.0' },
+  { file: 'social-media-1.jpg', projectId: 'project-growth-2', field: 'mainImage' },
+  { file: 'social-media-2.jpg', projectId: 'project-growth-2', field: 'gallery.0' },
   
   // Marketing Project 3
-  { file: 'content-marketing-1.jpg', projectId: 'project-marketing-3', field: 'mainImage' },
+  { file: 'content-growth-1.jpg', projectId: 'project-growth-3', field: 'mainImage' },
 ];
 
 console.log('Uploading images to Sanity...\n');

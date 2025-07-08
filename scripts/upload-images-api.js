@@ -42,21 +42,21 @@ const imagePlaceholders = {
   'project-code-3': {
     mainImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-placeholder-code-3' }}
   },
-  'project-marketing-1': {
-    mainImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-placeholder-marketing-1' }},
+  'project-growth-1': {
+    mainImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-placeholder-growth-1' }},
     gallery: [
-      { _type: 'image', _key: 'g1', asset: { _type: 'reference', _ref: 'image-placeholder-marketing-1-g1' }},
-      { _type: 'image', _key: 'g2', asset: { _type: 'reference', _ref: 'image-placeholder-marketing-1-g2' }}
+      { _type: 'image', _key: 'g1', asset: { _type: 'reference', _ref: 'image-placeholder-growth-1-g1' }},
+      { _type: 'image', _key: 'g2', asset: { _type: 'reference', _ref: 'image-placeholder-growth-1-g2' }}
     ]
   },
-  'project-marketing-2': {
-    mainImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-placeholder-marketing-2' }},
+  'project-growth-2': {
+    mainImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-placeholder-growth-2' }},
     gallery: [
-      { _type: 'image', _key: 'g1', asset: { _type: 'reference', _ref: 'image-placeholder-marketing-2-g1' }}
+      { _type: 'image', _key: 'g1', asset: { _type: 'reference', _ref: 'image-placeholder-growth-2-g1' }}
     ]
   },
-  'project-marketing-3': {
-    mainImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-placeholder-marketing-3' }}
+  'project-growth-3': {
+    mainImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-placeholder-growth-3' }}
   }
 };
 

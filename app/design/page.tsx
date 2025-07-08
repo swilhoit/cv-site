@@ -49,7 +49,7 @@ export default function DesignPage() {
                 <li>• Logo design</li>
                 <li>• Brand guidelines</li>
                 <li>• Visual identity systems</li>
-                <li>• Marketing materials</li>
+                <li>• Growth materials</li>
               </ul>
             </CardContent>
           </Card>

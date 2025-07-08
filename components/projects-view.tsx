@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from "next/link"
 import Image from "next/image"
-import { urlForImage } from "@/sanity/lib/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -15,7 +14,7 @@ interface Project {
   _id: string
   title: string
   slug: { current: string }
-  category: 'design' | 'coding' | 'marketing'
+  category: 'design' | 'coding' | 'growth'
   description: string
   mainImage: SanityImage
   technologies: string[]
@@ -28,12 +27,23 @@ interface ProjectsViewProps {
 
 export function ProjectsView({ projects }: ProjectsViewProps) {
   const [viewMode, setViewMode] = useState<'table' | 'card'>('table')
+  const [selectedTech, setSelectedTech] = useState<string | null>(null)
 
   const categoryColors = {
     design: 'bg-amber-100 text-amber-900 dark:bg-amber-900/20 dark:text-amber-200',
     coding: 'bg-stone-100 text-stone-900 dark:bg-stone-900/20 dark:text-stone-200',
-    marketing: 'bg-yellow-100 text-yellow-900 dark:bg-yellow-900/20 dark:text-yellow-200',
+    growth: 'bg-yellow-100 text-yellow-900 dark:bg-yellow-900/20 dark:text-yellow-200',
   }
+
+  // Collect all unique technologies
+  const allTechnologies = Array.from(
+    new Set(projects.flatMap(project => project.technologies || []))
+  ).sort()
+
+  // Filter projects if a technology is selected
+  const filteredProjects = selectedTech
+    ? projects.filter(project => project.technologies?.includes(selectedTech))
+    : projects
 
   if (projects.length === 0) {
     return (
@@ -45,6 +55,34 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
 
   return (
     <div>
+      {/* Tag Cloud */}
+      {allTechnologies.length > 0 && (
+        <div className="mb-8">
+          <h3 className="font-mono font-extralight uppercase tracking-[0.2em] text-xs mb-4">Filter by Technology</h3>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              variant={selectedTech === null ? "default" : "outline"}
+              size="sm"
+              onClick={() => setSelectedTech(null)}
+              className="text-xs"
+            >
+              All
+            </Button>
+            {allTechnologies.map((tech) => (
+              <Button
+                key={tech}
+                variant={selectedTech === tech ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSelectedTech(tech)}
+                className="text-xs"
+              >
+                {tech}
+              </Button>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="flex justify-end mb-6">
         <div className="flex gap-2">
           <Button
@@ -78,7 +116,7 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {projects.map((project) => (
+              {filteredProjects.map((project) => (
                 <TableRow key={project._id} className="hover:bg-muted/50 transition-colors">
                   <TableCell>
                     <Link 
@@ -122,19 +160,17 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <Link key={project._id} href={`/projects/${project.slug?.current || project._id}`}>
               <Card className="h-full hover:shadow-lg transition-shadow overflow-hidden">
-                {project.mainImage && (
-                  <div className="relative aspect-video">
-                    <Image
-                      src={urlForImage(project.mainImage).url()}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
+                <div className="relative aspect-video">
+                  <Image
+                    src={`https://picsum.photos/seed/${project._id}/600/400`}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
                     <Badge 

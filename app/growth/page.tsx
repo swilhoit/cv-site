@@ -3,20 +3,20 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, BarChart3, Megaphone, Search, Target } from "lucide-react"
 
-export default function MarketingPage() {
+export default function GrowthPage() {
   return (
     <div className="container py-10">
       <section className="max-w-4xl mx-auto text-center py-20">
         <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-6">
-          Marketing That Drives Results
+          Growth That Drives Results
         </h1>
         <p className="text-xl text-muted-foreground font-light mb-8">
-          Strategic digital marketing to grow your brand and reach your audience
+          Strategic digital growth to expand your brand and reach your audience
         </p>
       </section>
 
       <section className="py-12">
-        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-12">Marketing Services</h2>
+        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-12">Growth Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -82,7 +82,7 @@ export default function MarketingPage() {
                 Data-driven insights to optimize performance
               </CardDescription>
               <ul className="text-sm text-muted-foreground font-light space-y-2">
-                <li>• Marketing analytics</li>
+                <li>• Growth analytics</li>
                 <li>• Conversion optimization</li>
                 <li>• A/B testing</li>
                 <li>• Performance reporting</li>
@@ -93,7 +93,7 @@ export default function MarketingPage() {
       </section>
 
       <section className="py-12">
-        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-8">Marketing Approach</h2>
+        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-8">Growth Approach</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center">
             <div className="text-4xl font-bold mb-2">1</div>
@@ -122,11 +122,11 @@ export default function MarketingPage() {
       <section className="py-20 text-center">
         <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-4">Ready to Grow Your Business?</h2>
         <p className="text-xl text-muted-foreground font-light mb-8">
-          Let&apos;s create a marketing strategy that delivers results
+          Let&apos;s create a growth strategy that delivers results
         </p>
         <Button size="lg" asChild>
-          <Link href="/projects?category=marketing">
-            View Marketing Projects <ArrowRight className="ml-2 h-5 w-5" />
+          <Link href="/projects?category=growth">
+            View Growth Projects <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </Button>
       </section>
