@@ -9,12 +9,22 @@ export function ProfilePicture() {
   useEffect(() => {
     // Push down the navigation when marquee is visible
     const nav = document.querySelector('header')
+    const main = document.querySelector('main')
     if (nav) {
       if (isHovered) {
-        nav.style.marginTop = '40px'
-        nav.style.transition = 'margin-top 500ms ease'
+        nav.style.top = '40px'
+        nav.style.transition = 'top 500ms ease'
       } else {
-        nav.style.marginTop = '0'
+        nav.style.top = '0'
+      }
+    }
+    // Also push down main content
+    if (main) {
+      if (isHovered) {
+        main.style.paddingTop = '40px'
+        main.style.transition = 'padding-top 500ms ease'
+      } else {
+        main.style.paddingTop = '0'
       }
     }
   }, [isHovered])
@@ -23,9 +33,10 @@ export function ProfilePicture() {
     <>
       {/* Top Marquee Banner - shown on hover */}
       <div
-        className={`fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-pink-100 to-blue-100 dark:from-rose-950/10 dark:to-amber-950/10 transition-all duration-500 overflow-hidden border-b border-border ${
+        className={`fixed top-0 left-0 right-0 z-[70] bg-gradient-to-r from-pink-100 to-blue-100 dark:from-rose-950/10 dark:to-amber-950/10 transition-all duration-500 overflow-hidden border-b border-border ${
           isHovered ? 'h-10' : 'h-0'
         }`}
+        style={{ margin: 0 }}
       >
         <div className="animate-marquee-reverse whitespace-nowrap py-2">
           <span className="mx-4 text-sm font-mono font-extralight uppercase tracking-[0.2em]">
