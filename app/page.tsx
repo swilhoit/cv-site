@@ -18,10 +18,10 @@ export default function HomePage() {
           />
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extralight tracking-wide">
-          Building brands, products, and digital experiences
+          Designer and Builder
         </h1>
         <p className="text-sm text-muted-foreground max-w-[600px] font-light leading-loose">
-          Designer, developer, and growth strategist creating meaningful solutions at the intersection of creativity and technology
+          Currently Product Design Lead at Geo.studio and CMO of Intercept.club
         </p>
         <div className="flex gap-4">
           <Button asChild size="sm" className="text-xs font-light">
