@@ -6,7 +6,6 @@ import { Navigation } from "@/components/navigation"
 import { PageTransition } from "@/components/page-transition"
 import { GridBackground } from "@/components/grid-background"
 import { CustomCursor } from "@/components/custom-cursor"
-import { MarqueeBanner } from "@/components/marquee-banner"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -41,9 +40,8 @@ export default function RootLayout({
         >
           <CustomCursor />
           <GridBackground />
-          <MarqueeBanner />
           <Navigation />
-          <main className="min-h-screen px-4 md:px-8 pt-10">
+          <main className="min-h-screen px-4 md:px-8">
             <PageTransition>{children}</PageTransition>
           </main>
         </ThemeProvider>
