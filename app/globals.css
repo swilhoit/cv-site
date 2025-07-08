@@ -2,19 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Earthly gradient animation for buttons */
-@keyframes earthly-gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 /* Marquee animation */
 @keyframes marquee {
   0% {
@@ -102,52 +89,6 @@
   }
 }
 
-.btn-gradient-hover {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.btn-gradient-hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    45deg,
-    #8B7355,
-    #A0826D,
-    #BC9A6A,
-    #D4A574,
-    #BC9A6A,
-    #A0826D,
-    #8B7355
-  );
-  background-size: 300% 300%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  animation: earthly-gradient 3s ease infinite;
-  z-index: -1;
-}
-
-.btn-gradient-hover:hover::before {
-  opacity: 1;
-}
-
-.dark .btn-gradient-hover::before {
-  background: linear-gradient(
-    45deg,
-    #D4A574,
-    #E6B88A,
-    #F5DEB3,
-    #FFE4B5,
-    #F5DEB3,
-    #E6B88A,
-    #D4A574
-  );
-}
 
 @layer base {
   :root {
