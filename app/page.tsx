@@ -3,12 +3,16 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
+import { ProjectMarquee } from "@/components/project-marquee"
+import { client } from "@/sanity/lib/client"
+import { projectsQuery } from "@/sanity/lib/queries"
 
-export default function HomePage() {
+export default async function HomePage() {
+  const projects = await client.fetch(projectsQuery)
   return (
     <div className="container py-10">
-      <section className="flex flex-col items-center text-center space-y-12 py-32">
-        <div className="relative w-32 h-32 rounded-full overflow-hidden mb-8">
+      <section className="flex flex-col items-center text-center space-y-6 py-16">
+        <div className="relative w-24 h-24 rounded-full overflow-hidden">
           <Image
             src="https://picsum.photos/seed/samwilhoit/400/400"
             alt="Sam Wilhoit"
@@ -17,12 +21,9 @@ export default function HomePage() {
             priority
           />
         </div>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-extralight tracking-wide">
-          Designer and Builder
-        </h1>
-        <p className="text-sm text-muted-foreground max-w-[600px] font-light leading-loose">
+        <h1 className="text-xl sm:text-2xl font-extralight tracking-wide max-w-[700px]">
           Currently Product Design Lead at Geo.studio and CMO of Intercept.club • Living in Los Angeles
-        </p>
+        </h1>
         <div className="flex gap-4">
           <Button asChild size="sm" className="text-xs font-light">
             <Link href="/projects">
@@ -35,12 +36,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      <ProjectMarquee projects={projects} />
+
       <section id="services" className="py-32">
         <h2 className="text-xs font-mono font-extralight uppercase tracking-[0.3em] text-center mb-20">What I Do</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
             <CardHeader className="pt-8">
-              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm mb-3">Design</CardTitle>
+              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm mb-3">Brand</CardTitle>
               <CardDescription className="text-xs leading-relaxed mt-2">
                 Creating beautiful, intuitive interfaces that delight users
               </CardDescription>
@@ -59,7 +62,7 @@ export default function HomePage() {
 
           <Card>
             <CardHeader className="pt-8">
-              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm mb-3">Development</CardTitle>
+              <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm mb-3">Product</CardTitle>
               <CardDescription className="text-xs leading-relaxed mt-2">
                 Building fast, scalable applications with modern technologies
               </CardDescription>

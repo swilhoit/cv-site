@@ -32,9 +32,9 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
   const [showFilters, setShowFilters] = useState(false)
 
   const categoryColors = {
-    design: 'bg-amber-100 text-amber-900 dark:bg-amber-900/20 dark:text-amber-200',
-    coding: 'bg-stone-100 text-stone-900 dark:bg-stone-900/20 dark:text-stone-200',
-    growth: 'bg-yellow-100 text-yellow-900 dark:bg-yellow-900/20 dark:text-yellow-200',
+    design: 'font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50 px-3 py-1 text-xs',
+    coding: 'font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50 px-3 py-1 text-xs',
+    growth: 'font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50 px-3 py-1 text-xs',
   }
 
   // Collect all unique technologies
@@ -73,7 +73,7 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
               <button
                 onClick={() => setSelectedTech(null)}
                 className={cn(
-                  "px-3 py-1 text-xs font-mono font-extralight uppercase tracking-wider border rounded-full transition-colors",
+                  "px-4 py-2 text-xs font-mono font-extralight uppercase tracking-wider border rounded-full transition-colors",
                   selectedTech === null 
                     ? "bg-primary text-primary-foreground" 
                     : "bg-stone-50 dark:bg-stone-900/50 hover:bg-stone-100 dark:hover:bg-stone-800/50"
@@ -86,7 +86,7 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
                   key={tech}
                   onClick={() => setSelectedTech(tech)}
                   className={cn(
-                    "px-3 py-1 text-xs font-mono font-extralight uppercase tracking-wider border rounded-full transition-colors",
+                    "px-4 py-2 text-xs font-mono font-extralight uppercase tracking-wider border rounded-full transition-colors",
                     selectedTech === tech 
                       ? "bg-primary text-primary-foreground" 
                       : "bg-stone-50 dark:bg-stone-900/50 hover:bg-stone-100 dark:hover:bg-stone-800/50"
@@ -122,7 +122,7 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
       </div>
 
       {viewMode === 'table' ? (
-        <div className="border rounded-lg overflow-hidden">
+        <div className="border rounded-2xl overflow-hidden bg-white/60 dark:bg-gray-900/60 backdrop-blur-md">
           <Table>
             <TableHeader>
               <TableRow>
@@ -159,12 +159,12 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
                   <TableCell>
                     <div className="flex flex-wrap gap-1">
                       {project.technologies?.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50">
+                        <Badge key={tech} variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50 px-3 py-1">
                           {tech}
                         </Badge>
                       ))}
                       {project.technologies?.length > 3 && (
-                        <Badge variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50">
+                        <Badge variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50 px-3 py-1">
                           +{project.technologies.length - 3}
                         </Badge>
                       )}
@@ -204,12 +204,12 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50">
+                        <Badge key={tech} variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50 px-3 py-1">
                           {tech}
                         </Badge>
                       ))}
                       {project.technologies.length > 3 && (
-                        <Badge variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50">
+                        <Badge variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50 px-3 py-1">
                           +{project.technologies.length - 3}
                         </Badge>
                       )}

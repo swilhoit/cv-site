@@ -43,9 +43,9 @@ export function GridBackground() {
       const driftY = Math.cos(time * 0.00015) * 30
       ctx.translate(driftX, driftY)
       
-      // More contrasted colors
+      // 50% transparent lines
       const isDark = document.documentElement.classList.contains('dark')
-      ctx.strokeStyle = isDark ? 'rgba(120, 120, 120, 0.3)' : 'rgba(80, 80, 80, 0.4)'
+      ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)'
       ctx.lineWidth = isDark ? 0.5 : 0.7
       
       // Calculate visible grid bounds

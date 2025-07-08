@@ -75,10 +75,10 @@ export function CustomCursor() {
             isHovering ? 'scale-150' : ''
           } ${isClicking ? 'scale-75' : ''}`}
           style={{
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: 'rgba(128, 128, 128, 0.3)',
             backdropFilter: 'blur(4px)',
             WebkitBackdropFilter: 'blur(4px)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
+            border: '1px solid rgba(128, 128, 128, 0.4)',
           }}
         />
       </div>
@@ -91,7 +91,7 @@ export function CustomCursor() {
         }}
       >
         <div
-          className={`h-1 w-1 rounded-full bg-white/60 transition-all duration-100 ${
+          className={`h-1 w-1 rounded-full bg-gray-500 transition-all duration-100 ${
             isHovering ? 'opacity-0' : ''
           }`}
         />
