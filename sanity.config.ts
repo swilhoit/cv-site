@@ -5,6 +5,7 @@ import { schemaTypes } from './sanity/schemas'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'ld6z30ky'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
 export default defineConfig({
   name: 'default',
@@ -16,4 +17,15 @@ export default defineConfig({
     types: schemaTypes,
   },
   basePath: '/studio',
+  document: {
+    productionUrl: async (prev, context) => {
+      const {document} = context
+      
+      if (document._type === 'project' && document.slug?.current) {
+        return `${siteUrl}/projects/${document.slug.current}`
+      }
+      
+      return prev
+    },
+  },
 })

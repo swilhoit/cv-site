@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
 import { ProjectMarquee } from "@/components/project-marquee"
+import { AnimatedHeadline } from "@/components/animated-headline"
 import { client } from "@/sanity/lib/client"
 import { projectsQuery } from "@/sanity/lib/queries"
 
@@ -12,6 +13,7 @@ export default async function HomePage() {
   return (
     <div className="container py-10">
       <section className="flex flex-col items-center text-center space-y-6 py-16">
+        <AnimatedHeadline />
         <div className="relative w-24 h-24 rounded-full overflow-hidden">
           <Image
             src="https://picsum.photos/seed/samwilhoit/400/400"
@@ -21,9 +23,9 @@ export default async function HomePage() {
             priority
           />
         </div>
-        <h1 className="text-xl sm:text-2xl font-extralight tracking-wide max-w-[700px]">
+        <p className="text-xl sm:text-2xl font-extralight tracking-wide max-w-[700px]">
           Currently Product Design Lead at Geo.studio and CMO of Intercept.club • Living in Los Angeles
-        </h1>
+        </p>
         <div className="flex gap-4">
           <Button asChild size="sm" className="text-xs font-light">
             <Link href="/projects">

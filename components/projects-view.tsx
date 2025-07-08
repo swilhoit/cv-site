@@ -122,7 +122,7 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
       </div>
 
       {viewMode === 'table' ? (
-        <div className="border rounded-2xl overflow-hidden bg-white/60 dark:bg-gray-900/60 backdrop-blur-md">
+        <div className="border rounded-2xl overflow-hidden bg-card/60 backdrop-blur-md">
           <Table>
             <TableHeader>
               <TableRow>
