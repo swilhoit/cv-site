@@ -37,7 +37,7 @@ export function HeroSection() {
     <>
       {/* Top Marquee Banner - shown on hover */}
       <div
-        className={`fixed top-0 left-0 right-0 z-[70] bg-gradient-to-r from-pink-100 to-blue-100 dark:from-rose-950/10 dark:to-amber-950/10 transition-all duration-500 overflow-hidden border-b border-border ${
+        className={`fixed top-0 left-0 right-0 z-[70] bg-gradient-to-r from-orange-100/70 to-amber-100/70 dark:from-amber-950/15 dark:to-orange-950/15 transition-all duration-500 overflow-hidden border-b border-border ${
           isHovered ? 'h-10' : 'h-0'
         }`}
         style={{ margin: 0 }}
