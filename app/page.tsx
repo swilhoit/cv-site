@@ -13,8 +13,8 @@ export default async function HomePage() {
   return (
     <div className="container py-10">
       <section className="flex flex-col items-center text-center space-y-6 py-16">
-        <AnimatedHeadline />
         <ProfilePicture />
+        <AnimatedHeadline />
         <p className="text-xl sm:text-2xl font-extralight tracking-wide max-w-[700px]">
           Currently Product Design Lead at Geo.studio and CMO of Intercept.club • Living in Los Angeles
         </p>
