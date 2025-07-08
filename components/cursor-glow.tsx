@@ -50,7 +50,7 @@ export function CursorGlow() {
               )
             `,
             filter: 'blur(60px)',
-            animation: 'waveDistort 8s ease-in-out infinite',
+            animation: 'waveDistort 20s ease-in-out infinite',
             transform: 'rotate(0deg)',
           }}
         />
@@ -70,7 +70,7 @@ export function CursorGlow() {
               )
             `,
             filter: 'blur(50px)',
-            animation: 'waveDistort 11s ease-in-out infinite reverse',
+            animation: 'waveDistort 25s ease-in-out infinite reverse',
             transform: 'rotate(45deg)',
           }}
         />
@@ -90,7 +90,7 @@ export function CursorGlow() {
               )
             `,
             filter: 'blur(40px)',
-            animation: 'floatRandom 15s ease-in-out infinite',
+            animation: 'floatRandom 30s ease-in-out infinite',
           }}
         />
 
@@ -100,7 +100,7 @@ export function CursorGlow() {
           style={{
             background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent)',
             filter: 'blur(30px)',
-            animation: 'floatOrb 20s ease-in-out infinite',
+            animation: 'floatOrb 35s ease-in-out infinite',
           }}
         />
 
@@ -110,7 +110,7 @@ export function CursorGlow() {
           style={{
             background: 'radial-gradient(circle, rgba(236, 72, 153, 0.4), transparent)',
             filter: 'blur(25px)',
-            animation: 'floatOrb 17s ease-in-out infinite reverse',
+            animation: 'floatOrb 40s ease-in-out infinite reverse',
           }}
         />
       </div>

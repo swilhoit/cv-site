@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 
 export function GridBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const mouseRef = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -63,6 +64,19 @@ export function GridBackground() {
           const distFromCenter = Math.sqrt(x * x + y * y)
           const normalizedDist = distFromCenter / (gridBounds * 0.7)
           
+          // Mouse influence
+          const mouseWorldX = mouseRef.current.x - centerX - driftX
+          const mouseWorldY = mouseRef.current.y - centerY - driftY
+          const mouseDistX = x - mouseWorldX
+          const mouseDistY = y - mouseWorldY
+          const mouseDist = Math.sqrt(mouseDistX * mouseDistX + mouseDistY * mouseDistY)
+          const mouseInfluence = Math.max(0, 1 - mouseDist / 200)
+          
+          // Mouse warp effect
+          const warpAmount = mouseInfluence * 30
+          const warpX = mouseInfluence > 0 ? (mouseDistX / mouseDist) * warpAmount : 0
+          const warpY = mouseInfluence > 0 ? (mouseDistY / mouseDist) * warpAmount : 0
+          
           // Melting effect - more pronounced at edges
           const meltAmount = normalizedDist * 20
           const meltY = Math.sin(time * 0.001 + i * 0.3) * meltAmount
@@ -73,8 +87,8 @@ export function GridBackground() {
           const waveY = Math.cos(time * 0.0004 + j * 0.1 + i * 0.05) * 5
           
           // Combine effects
-          const finalX = x + waveX + meltX
-          const finalY = y + waveY + meltY
+          const finalX = x + waveX + meltX + warpX
+          const finalY = y + waveY + meltY + warpY
           
           // Opacity based on distance
           const opacity = Math.max(0.1, 1 - normalizedDist * 0.8)
@@ -135,6 +149,12 @@ export function GridBackground() {
     resize()
     window.addEventListener('resize', resize)
     
+    // Mouse movement handler
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseRef.current = { x: e.clientX, y: e.clientY }
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    
     // Listen for theme changes
     const observer = new MutationObserver(() => {
       draw()
@@ -148,6 +168,7 @@ export function GridBackground() {
 
     return () => {
       window.removeEventListener('resize', resize)
+      window.removeEventListener('mousemove', handleMouseMove)
       cancelAnimationFrame(animationFrameId)
       observer.disconnect()
     }
