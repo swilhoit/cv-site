@@ -7,10 +7,10 @@ export default function HomePage() {
   return (
     <div className="container py-10">
       <section className="flex flex-col items-center text-center space-y-8 py-20">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light">
           Designer. Developer. Marketer.
         </h1>
-        <p className="text-xl text-muted-foreground max-w-[700px]">
+        <p className="text-xl text-muted-foreground max-w-[700px] font-light">
           Bridging creativity and technology to build meaningful digital experiences
         </p>
         <div className="flex gap-4">
@@ -26,12 +26,12 @@ export default function HomePage() {
       </section>
 
       <section id="services" className="py-20">
-        <h2 className="text-3xl font-bold text-center mb-12">What I Do</h2>
+        <h2 className="text-2xl font-mono font-light uppercase tracking-wider text-center mb-12">What I Do</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
               <Palette className="h-10 w-10 mb-4" />
-              <CardTitle>Design</CardTitle>
+              <CardTitle className="font-mono font-light uppercase tracking-wider">Design</CardTitle>
               <CardDescription>
                 Creating beautiful, intuitive interfaces that delight users
               </CardDescription>
@@ -51,7 +51,7 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <Code2 className="h-10 w-10 mb-4" />
-              <CardTitle>Development</CardTitle>
+              <CardTitle className="font-mono font-light uppercase tracking-wider">Development</CardTitle>
               <CardDescription>
                 Building fast, scalable applications with modern technologies
               </CardDescription>
@@ -71,7 +71,7 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <Megaphone className="h-10 w-10 mb-4" />
-              <CardTitle>Marketing</CardTitle>
+              <CardTitle className="font-mono font-light uppercase tracking-wider">Marketing</CardTitle>
               <CardDescription>
                 Driving growth through strategic digital marketing
               </CardDescription>
@@ -91,8 +91,8 @@ export default function HomePage() {
       </section>
 
       <section className="py-20 text-center">
-        <h2 className="text-3xl font-bold mb-4">Let&apos;s Create Something Amazing</h2>
-        <p className="text-xl text-muted-foreground mb-8">
+        <h2 className="text-2xl font-mono font-light uppercase tracking-wider mb-4">Let&apos;s Create Something Amazing</h2>
+        <p className="text-xl text-muted-foreground mb-8 font-light">
           Ready to bring your ideas to life?
         </p>
         <Button size="lg" asChild>

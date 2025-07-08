@@ -7,16 +7,16 @@ export default function CodePage() {
   return (
     <div className="container py-10">
       <section className="max-w-4xl mx-auto text-center py-20">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
+        <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-6">
           Code That Performs
         </h1>
-        <p className="text-xl text-muted-foreground mb-8">
+        <p className="text-xl text-muted-foreground font-light mb-8">
           Building robust, scalable applications with modern technologies
         </p>
       </section>
 
       <section className="py-12">
-        <h2 className="text-3xl font-bold mb-12">Development Services</h2>
+        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-12">Development Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -24,10 +24,10 @@ export default function CodePage() {
               <CardTitle>Web Development</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="mb-4">
+              <CardDescription className="mb-4 font-light">
                 Full-stack web applications built for performance
               </CardDescription>
-              <ul className="text-sm text-muted-foreground space-y-2">
+              <ul className="text-sm text-muted-foreground font-light space-y-2">
                 <li>• React/Next.js applications</li>
                 <li>• Node.js backends</li>
                 <li>• RESTful & GraphQL APIs</li>
@@ -42,10 +42,10 @@ export default function CodePage() {
               <CardTitle>Mobile Development</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="mb-4">
+              <CardDescription className="mb-4 font-light">
                 Native and cross-platform mobile solutions
               </CardDescription>
-              <ul className="text-sm text-muted-foreground space-y-2">
+              <ul className="text-sm text-muted-foreground font-light space-y-2">
                 <li>• React Native apps</li>
                 <li>• iOS & Android development</li>
                 <li>• App optimization</li>
@@ -60,10 +60,10 @@ export default function CodePage() {
               <CardTitle>Backend Systems</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="mb-4">
+              <CardDescription className="mb-4 font-light">
                 Scalable server infrastructure and databases
               </CardDescription>
-              <ul className="text-sm text-muted-foreground space-y-2">
+              <ul className="text-sm text-muted-foreground font-light space-y-2">
                 <li>• Database design</li>
                 <li>• Cloud deployments</li>
                 <li>• Microservices</li>
@@ -78,10 +78,10 @@ export default function CodePage() {
               <CardTitle>Technical Consulting</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="mb-4">
+              <CardDescription className="mb-4 font-light">
                 Expert guidance for your technical challenges
               </CardDescription>
-              <ul className="text-sm text-muted-foreground space-y-2">
+              <ul className="text-sm text-muted-foreground font-light space-y-2">
                 <li>• Code reviews</li>
                 <li>• Architecture planning</li>
                 <li>• Performance optimization</li>
@@ -93,7 +93,7 @@ export default function CodePage() {
       </section>
 
       <section className="py-12">
-        <h2 className="text-3xl font-bold mb-8">Tech Stack</h2>
+        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-8">Tech Stack</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             "TypeScript",
@@ -113,15 +113,15 @@ export default function CodePage() {
               key={tech}
               className="text-center p-4 rounded-lg border bg-card"
             >
-              <p className="font-medium">{tech}</p>
+              <p className="font-light">{tech}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="py-20 text-center">
-        <h2 className="text-3xl font-bold mb-4">Let&apos;s Build Something Great</h2>
-        <p className="text-xl text-muted-foreground mb-8">
+        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-4">Let&apos;s Build Something Great</h2>
+        <p className="text-xl text-muted-foreground font-light mb-8">
           Ready to turn your ideas into reality?
         </p>
         <Button size="lg" asChild>

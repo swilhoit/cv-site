@@ -7,16 +7,16 @@ export default function DesignPage() {
   return (
     <div className="container py-10">
       <section className="max-w-4xl mx-auto text-center py-20">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
+        <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-6">
           Design That Inspires
         </h1>
-        <p className="text-xl text-muted-foreground mb-8">
+        <p className="text-xl text-muted-foreground font-light mb-8">
           Creating visual experiences that connect with people and elevate brands
         </p>
       </section>
 
       <section className="py-12">
-        <h2 className="text-3xl font-bold mb-12">Design Services</h2>
+        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-12">Design Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -24,10 +24,10 @@ export default function DesignPage() {
               <CardTitle>UI/UX Design</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="mb-4">
+              <CardDescription className="mb-4 font-light">
                 User-centered design that prioritizes functionality and aesthetics
               </CardDescription>
-              <ul className="text-sm text-muted-foreground space-y-2">
+              <ul className="text-sm text-muted-foreground font-light space-y-2">
                 <li>• User interface design</li>
                 <li>• User experience research</li>
                 <li>• Wireframing and prototyping</li>
@@ -42,10 +42,10 @@ export default function DesignPage() {
               <CardTitle>Brand Identity</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="mb-4">
+              <CardDescription className="mb-4 font-light">
                 Building memorable brands that stand out in the market
               </CardDescription>
-              <ul className="text-sm text-muted-foreground space-y-2">
+              <ul className="text-sm text-muted-foreground font-light space-y-2">
                 <li>• Logo design</li>
                 <li>• Brand guidelines</li>
                 <li>• Visual identity systems</li>
@@ -60,10 +60,10 @@ export default function DesignPage() {
               <CardTitle>Digital Design</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="mb-4">
+              <CardDescription className="mb-4 font-light">
                 Modern digital designs for web and mobile platforms
               </CardDescription>
-              <ul className="text-sm text-muted-foreground space-y-2">
+              <ul className="text-sm text-muted-foreground font-light space-y-2">
                 <li>• Website design</li>
                 <li>• Mobile app design</li>
                 <li>• Social media graphics</li>
@@ -78,10 +78,10 @@ export default function DesignPage() {
               <CardTitle>Design Consulting</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="mb-4">
+              <CardDescription className="mb-4 font-light">
                 Strategic design guidance to elevate your product
               </CardDescription>
-              <ul className="text-sm text-muted-foreground space-y-2">
+              <ul className="text-sm text-muted-foreground font-light space-y-2">
                 <li>• Design audits</li>
                 <li>• UX strategy</li>
                 <li>• Design workshops</li>
@@ -93,8 +93,8 @@ export default function DesignPage() {
       </section>
 
       <section className="py-20 text-center">
-        <h2 className="text-3xl font-bold mb-4">Ready to Elevate Your Design?</h2>
-        <p className="text-xl text-muted-foreground mb-8">
+        <h2 className="text-3xl font-mono font-light uppercase tracking-wider mb-4">Ready to Elevate Your Design?</h2>
+        <p className="text-xl text-muted-foreground font-light mb-8">
           Let&apos;s create something beautiful together
         </p>
         <Button size="lg" asChild>

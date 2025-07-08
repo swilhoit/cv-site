@@ -54,6 +54,23 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans font-light;
+  }
+  
+  /* Typography styles */
+  h1 {
+    @apply font-sans font-light;
+  }
+  
+  h2, h3, h4, h5, h6 {
+    @apply font-mono font-light uppercase tracking-wider;
+  }
+  
+  .nav-item {
+    @apply font-mono font-light uppercase tracking-wider text-sm;
+  }
+  
+  .section-title {
+    @apply font-mono font-light uppercase tracking-wider;
   }
 }

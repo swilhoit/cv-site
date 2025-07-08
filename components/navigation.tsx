@@ -20,7 +20,7 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container flex h-16 items-center justify-between">
-        <Link href="/" className="text-xl font-semibold">
+        <Link href="/" className="font-mono font-light uppercase tracking-wider text-lg">
           Portfolio
         </Link>
         
@@ -31,7 +31,7 @@ export function Navigation() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary",
+                    "font-mono font-light uppercase tracking-wider text-sm transition-colors hover:text-primary",
                     pathname === item.href
                       ? "text-foreground"
                       : "text-muted-foreground"
