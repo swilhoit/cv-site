@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight } from "lucide-react"
 import { ProjectMarquee } from "@/components/project-marquee"
 import { AnimatedHeadline } from "@/components/animated-headline"
+import { ProfilePicture } from "@/components/profile-picture"
 import { client } from "@/sanity/lib/client"
 import { projectsQuery } from "@/sanity/lib/queries"
 
@@ -14,15 +15,7 @@ export default async function HomePage() {
     <div className="container py-10">
       <section className="flex flex-col items-center text-center space-y-6 py-16">
         <AnimatedHeadline />
-        <div className="relative w-24 h-24 rounded-full overflow-hidden">
-          <Image
-            src="https://picsum.photos/seed/samwilhoit/400/400"
-            alt="Sam Wilhoit"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+        <ProfilePicture />
         <p className="text-xl sm:text-2xl font-extralight tracking-wide max-w-[700px]">
           Currently Product Design Lead at Geo.studio and CMO of Intercept.club • Living in Los Angeles
         </p>
