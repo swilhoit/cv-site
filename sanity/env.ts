@@ -9,4 +9,15 @@ export const dataset: string =
 export const projectId: string = 
   (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'ld6z30ky').trim()
 
+// Debug logging for production
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
+  console.log('Sanity Config Debug:', {
+    projectId,
+    dataset,
+    apiVersion,
+    env_projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    env_dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  })
+}
+
 export const useCdn = false
