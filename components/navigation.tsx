@@ -4,14 +4,24 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/theme-toggle"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { ChevronDown } from "lucide-react"
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
+]
+
+const services = [
   { name: "Design", href: "/design" },
   { name: "Code", href: "/code" },
   { name: "Marketing", href: "/marketing" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
 ]
 
 export function Navigation() {
@@ -25,7 +35,7 @@ export function Navigation() {
         </Link>
         
         <div className="flex items-center gap-6">
-          <ul className="flex gap-6">
+          <ul className="flex gap-6 items-center">
             {navigation.map((item) => (
               <li key={item.name}>
                 <Link
@@ -41,6 +51,34 @@ export function Navigation() {
                 </Link>
               </li>
             ))}
+            <li>
+              <DropdownMenu>
+                <DropdownMenuTrigger className={cn(
+                  "font-mono font-light uppercase tracking-wider text-sm transition-colors hover:text-primary flex items-center gap-1",
+                  services.some(item => pathname === item.href)
+                    ? "text-foreground"
+                    : "text-muted-foreground"
+                )}>
+                  Services
+                  <ChevronDown className="h-3 w-3" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  {services.map((item) => (
+                    <DropdownMenuItem key={item.name} asChild>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "font-mono font-light uppercase tracking-wider text-sm",
+                          pathname === item.href && "font-medium"
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
           </ul>
           
           <ThemeToggle />
