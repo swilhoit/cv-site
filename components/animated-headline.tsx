@@ -92,7 +92,7 @@ export function AnimatedHeadline() {
   return (
     <div className={`${fonts.map(f => f.variable).join(' ')}`}>
       <h1 
-        className={`text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight transition-all duration-300 ${currentFont.className}`}
+        className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tight transition-all duration-300 whitespace-nowrap ${currentFont.className}`}
         style={{ fontWeight: 900 }}
       >
         Hello, I&apos;m Sam
