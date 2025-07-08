@@ -63,29 +63,35 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Main cursor circle */}
+      {/* Main cursor circle with blur */}
       <div
-        className="pointer-events-none fixed top-0 left-0 z-[9999] mix-blend-difference hidden md:block"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block"
         style={{
-          transform: `translate(${position.x - 12}px, ${position.y - 12}px)`,
+          transform: `translate(${position.x - 20}px, ${position.y - 20}px)`,
         }}
       >
         <div
-          className={`h-6 w-6 rounded-full border-2 border-white transition-all duration-150 ${
+          className={`h-10 w-10 rounded-full transition-all duration-150 ${
             isHovering ? 'scale-150' : ''
           } ${isClicking ? 'scale-75' : ''}`}
+          style={{
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(4px)',
+            WebkitBackdropFilter: 'blur(4px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+          }}
         />
       </div>
       
       {/* Inner dot */}
       <div
-        className="pointer-events-none fixed top-0 left-0 z-[9999] mix-blend-difference hidden md:block"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block"
         style={{
           transform: `translate(${position.x - 2}px, ${position.y - 2}px)`,
         }}
       >
         <div
-          className={`h-1 w-1 rounded-full bg-white transition-all duration-100 ${
+          className={`h-1 w-1 rounded-full bg-white/60 transition-all duration-100 ${
             isHovering ? 'opacity-0' : ''
           }`}
         />

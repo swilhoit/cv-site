@@ -21,7 +21,7 @@ export default function HomePage() {
           Designer and Builder
         </h1>
         <p className="text-sm text-muted-foreground max-w-[600px] font-light leading-loose">
-          Currently Product Design Lead at Geo.studio and CMO of Intercept.club
+          Currently Product Design Lead at Geo.studio and CMO of Intercept.club • Living in Los Angeles
         </p>
         <div className="flex gap-4">
           <Button asChild size="sm" className="text-xs font-light">
