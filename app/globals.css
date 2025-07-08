@@ -29,6 +29,18 @@
   animation: marquee 15s linear infinite;
 }
 
+/* Pulse animation for cursor glow */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+}
+
 .btn-gradient-hover {
   position: relative;
   overflow: hidden;

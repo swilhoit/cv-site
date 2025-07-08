@@ -6,6 +6,7 @@ import { Navigation } from "@/components/navigation"
 import { PageTransition } from "@/components/page-transition"
 import { GridBackground } from "@/components/grid-background"
 import { CustomCursor } from "@/components/custom-cursor"
+import { CursorGlow } from "@/components/cursor-glow"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <CustomCursor />
+          <CursorGlow />
           <GridBackground />
           <Navigation />
           <main className="min-h-screen px-4 md:px-8">
