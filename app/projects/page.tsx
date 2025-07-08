@@ -27,11 +27,11 @@ export default async function ProjectsPage({
 
   return (
     <div className="container py-10">
-      <section className="max-w-4xl mx-auto text-center py-20">
-        <h1 className="text-4xl sm:text-5xl font-light mb-6">
+      <section className="max-w-4xl mx-auto text-center py-32">
+        <h1 className="text-2xl sm:text-3xl font-extralight tracking-wide mb-8">
           {category ? `${category.charAt(0).toUpperCase() + category.slice(1)} Projects` : 'All Projects'}
         </h1>
-        <p className="text-xl text-muted-foreground font-light">
+        <p className="text-sm text-muted-foreground font-light leading-relaxed">
           Explore my latest work across design, development, and marketing
         </p>
       </section>

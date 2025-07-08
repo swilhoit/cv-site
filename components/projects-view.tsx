@@ -71,10 +71,10 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="font-mono font-light uppercase tracking-wider">Project</TableHead>
-                <TableHead className="font-mono font-light uppercase tracking-wider">Category</TableHead>
-                <TableHead className="font-mono font-light uppercase tracking-wider">Description</TableHead>
-                <TableHead className="font-mono font-light uppercase tracking-wider">Technologies</TableHead>
+                <TableHead className="font-mono font-extralight uppercase tracking-[0.2em] text-xs">Project</TableHead>
+                <TableHead className="font-mono font-extralight uppercase tracking-[0.2em] text-xs">Category</TableHead>
+                <TableHead className="font-mono font-extralight uppercase tracking-[0.2em] text-xs">Description</TableHead>
+                <TableHead className="font-mono font-extralight uppercase tracking-[0.2em] text-xs">Technologies</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -83,7 +83,7 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
                   <TableCell>
                     <Link 
                       href={`/projects/${project.slug?.current || project._id}`}
-                      className="font-medium hover:underline"
+                      className="text-sm font-light hover:underline"
                     >
                       {project.title}
                     </Link>
@@ -97,7 +97,7 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
                     </Badge>
                   </TableCell>
                   <TableCell className="max-w-md">
-                    <span className="text-sm text-muted-foreground line-clamp-2">
+                    <span className="text-xs text-muted-foreground line-clamp-2">
                       {project.description}
                     </span>
                   </TableCell>
@@ -144,8 +144,8 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
                       {project.category}
                     </Badge>
                   </div>
-                  <CardTitle className="font-mono font-light uppercase tracking-wider">{project.title}</CardTitle>
-                  <CardDescription className="font-light">{project.description}</CardDescription>
+                  <CardTitle className="font-mono font-extralight uppercase tracking-[0.2em] text-sm">{project.title}</CardTitle>
+                  <CardDescription className="font-light text-xs leading-relaxed mt-2">{project.description}</CardDescription>
                 </CardHeader>
                 {project.technologies && project.technologies.length > 0 && (
                   <CardContent>

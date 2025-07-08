@@ -7,13 +7,13 @@ import { PageTransition } from "@/components/page-transition"
 
 const inter = Inter({ 
   subsets: ["latin"],
-  weight: ["300", "400"],
+  weight: ["200", "300", "400"],
   variable: "--font-sans"
 })
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["300", "400"],
+  weight: ["200", "300"],
   variable: "--font-mono"
 })
 
@@ -37,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navigation />
-          <main className="min-h-screen">
+          <main className="min-h-screen px-4 md:px-8">
             <PageTransition>{children}</PageTransition>
           </main>
         </ThemeProvider>

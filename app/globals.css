@@ -57,20 +57,28 @@
     @apply bg-background text-foreground font-sans font-light;
   }
   
-  /* Typography styles */
+  /* Typography styles - Minimalist */
   h1 {
-    @apply font-sans font-light;
+    @apply font-sans font-extralight tracking-wide;
   }
   
-  h2, h3, h4, h5, h6 {
-    @apply font-mono font-light uppercase tracking-wider;
+  h2 {
+    @apply font-mono font-extralight uppercase tracking-[0.2em] text-xs;
+  }
+  
+  h3, h4, h5, h6 {
+    @apply font-mono font-extralight uppercase tracking-[0.15em] text-xs;
+  }
+  
+  p {
+    @apply font-light text-sm leading-relaxed;
   }
   
   .nav-item {
-    @apply font-mono font-light uppercase tracking-wider text-sm;
+    @apply font-mono font-extralight uppercase tracking-[0.2em] text-xs;
   }
   
   .section-title {
-    @apply font-mono font-light uppercase tracking-wider;
+    @apply font-mono font-extralight uppercase tracking-[0.3em] text-xs;
   }
 }

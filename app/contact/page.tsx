@@ -2,11 +2,11 @@ import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react'
 
 export default function ContactPage() {
   return (
-    <div className="container max-w-2xl mx-auto px-4 py-16">
-      <h1 className="text-4xl font-light mb-8">Get in Touch</h1>
+    <div className="container max-w-2xl mx-auto px-4 py-32">
+      <h1 className="text-2xl font-extralight tracking-wide mb-12">Get in Touch</h1>
       
       <div className="prose prose-neutral dark:prose-invert max-w-none mb-12">
-        <p className="text-lg text-muted-foreground font-light">
+        <p className="text-sm text-muted-foreground font-light leading-relaxed">
           I&apos;m always interested in hearing about new projects and opportunities. 
           Whether you have a question or just want to say hi, feel free to reach out.
         </p>
@@ -20,8 +20,8 @@ export default function ContactPage() {
           >
             <Mail className="h-5 w-5 text-muted-foreground" />
             <div>
-              <p className="font-mono font-light uppercase tracking-wider text-sm">Email</p>
-              <p className="text-sm text-muted-foreground">hello@example.com</p>
+              <p className="font-mono font-extralight uppercase tracking-[0.2em] text-xs">Email</p>
+              <p className="text-xs text-muted-foreground">hello@example.com</p>
             </div>
           </a>
 
@@ -31,22 +31,22 @@ export default function ContactPage() {
           >
             <Phone className="h-5 w-5 text-muted-foreground" />
             <div>
-              <p className="font-mono font-light uppercase tracking-wider text-sm">Phone</p>
-              <p className="text-sm text-muted-foreground">+1 (234) 567-890</p>
+              <p className="font-mono font-extralight uppercase tracking-[0.2em] text-xs">Phone</p>
+              <p className="text-xs text-muted-foreground">+1 (234) 567-890</p>
             </div>
           </a>
 
           <div className="flex items-center gap-4 p-4 rounded-lg border bg-card">
             <MapPin className="h-5 w-5 text-muted-foreground" />
             <div>
-              <p className="font-mono font-light uppercase tracking-wider text-sm">Location</p>
-              <p className="text-sm text-muted-foreground">San Francisco, CA</p>
+              <p className="font-mono font-extralight uppercase tracking-[0.2em] text-xs">Location</p>
+              <p className="text-xs text-muted-foreground">San Francisco, CA</p>
             </div>
           </div>
         </div>
 
         <div className="pt-8 border-t">
-          <h2 className="text-lg font-mono font-light uppercase tracking-wider mb-4">Connect on Social</h2>
+          <h2 className="text-xs font-mono font-extralight uppercase tracking-[0.3em] mb-6">Connect on Social</h2>
           <div className="flex gap-4">
             <a 
               href="https://linkedin.com" 

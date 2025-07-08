@@ -30,7 +30,7 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container flex h-16 items-center justify-between">
-        <Link href="/" className="font-mono font-light uppercase tracking-wider text-lg">
+        <Link href="/" className="font-mono font-extralight uppercase tracking-[0.3em] text-xs">
           Portfolio
         </Link>
         
@@ -41,7 +41,7 @@ export function Navigation() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "font-mono font-light uppercase tracking-wider text-sm transition-colors hover:text-primary",
+                    "font-mono font-extralight uppercase tracking-[0.2em] text-xs transition-colors hover:text-primary",
                     pathname === item.href
                       ? "text-foreground"
                       : "text-muted-foreground"
@@ -54,7 +54,7 @@ export function Navigation() {
             <li>
               <DropdownMenu>
                 <DropdownMenuTrigger className={cn(
-                  "font-mono font-light uppercase tracking-wider text-sm transition-colors hover:text-primary flex items-center gap-1",
+                  "font-mono font-extralight uppercase tracking-[0.2em] text-xs transition-colors hover:text-primary flex items-center gap-1",
                   services.some(item => pathname === item.href)
                     ? "text-foreground"
                     : "text-muted-foreground"
@@ -68,8 +68,8 @@ export function Navigation() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "font-mono font-light uppercase tracking-wider text-sm",
-                          pathname === item.href && "font-medium"
+                          "font-mono font-extralight uppercase tracking-[0.15em] text-xs",
+                          pathname === item.href && "font-light"
                         )}
                       >
                         {item.name}
