@@ -1,9 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
+import { Button } from '@/components/ui/button'
+import { ArrowRight } from 'lucide-react'
+import { AnimatedHeadline } from '@/components/animated-headline'
 
-export function ProfilePicture() {
+export function HeroSection() {
   const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
@@ -48,20 +52,40 @@ export function ProfilePicture() {
         </div>
       </div>
 
-      {/* Profile Picture */}
-      <div 
-        className="relative w-24 h-24 rounded-full overflow-hidden transition-all duration-300 hover:scale-110"
+      {/* Hero Section with extended hover area */}
+      <section 
+        className="flex flex-col items-center text-center space-y-6 py-16"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Image
-          src={isHovered ? "https://picsum.photos/seed/samwilhoit2/400/400" : "https://picsum.photos/seed/samwilhoit/400/400"}
-          alt="Sam Wilhoit"
-          fill
-          className="object-cover transition-opacity duration-300"
-          priority
-        />
-      </div>
+        {/* Profile Picture */}
+        <div className="relative w-24 h-24 rounded-full overflow-hidden transition-all duration-300 hover:scale-110">
+          <Image
+            src={isHovered ? "https://picsum.photos/seed/samwilhoit2/400/400" : "https://picsum.photos/seed/samwilhoit/400/400"}
+            alt="Sam Wilhoit"
+            fill
+            className="object-cover transition-opacity duration-300"
+            priority
+          />
+        </div>
+        
+        <AnimatedHeadline />
+        
+        <p className="text-xl sm:text-2xl font-extralight tracking-wide max-w-[700px]">
+          Currently Product Design Lead at Geo.studio and CMO of Intercept.club • Living in Los Angeles
+        </p>
+        
+        <div className="flex gap-4">
+          <Button asChild size="sm" className="text-xs font-light">
+            <Link href="/projects">
+              View Projects <ArrowRight className="ml-2 h-3 w-3" />
+            </Link>
+          </Button>
+          <Button variant="outline" asChild size="sm" className="text-xs font-light">
+            <Link href="#services">Learn More</Link>
+          </Button>
+        </div>
+      </section>
     </>
   )
 }

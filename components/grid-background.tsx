@@ -70,10 +70,10 @@ export function GridBackground() {
           const mouseDistX = x - mouseWorldX
           const mouseDistY = y - mouseWorldY
           const mouseDist = Math.sqrt(mouseDistX * mouseDistX + mouseDistY * mouseDistY)
-          const mouseInfluence = Math.max(0, 1 - mouseDist / 200)
+          const mouseInfluence = Math.max(0, 1 - mouseDist / 300)
           
-          // Mouse warp effect
-          const warpAmount = mouseInfluence * 30
+          // Mouse warp effect - intensified
+          const warpAmount = mouseInfluence * mouseInfluence * 80 // Quadratic falloff for smoother warping
           const warpX = mouseInfluence > 0 ? (mouseDistX / mouseDist) * warpAmount : 0
           const warpY = mouseInfluence > 0 ? (mouseDistY / mouseDist) * warpAmount : 0
           

@@ -1,10 +1,8 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
 import { ProjectMarquee } from "@/components/project-marquee"
-import { AnimatedHeadline } from "@/components/animated-headline"
-import { ProfilePicture } from "@/components/profile-picture"
+import { HeroSection } from "@/components/hero-section"
 import { client } from "@/sanity/lib/client"
 import { projectsQuery } from "@/sanity/lib/queries"
 
@@ -12,23 +10,7 @@ export default async function HomePage() {
   const projects = await client.fetch(projectsQuery)
   return (
     <div className="container py-10">
-      <section className="flex flex-col items-center text-center space-y-6 py-16">
-        <ProfilePicture />
-        <AnimatedHeadline />
-        <p className="text-xl sm:text-2xl font-extralight tracking-wide max-w-[700px]">
-          Currently Product Design Lead at Geo.studio and CMO of Intercept.club • Living in Los Angeles
-        </p>
-        <div className="flex gap-4">
-          <Button asChild size="sm" className="text-xs font-light">
-            <Link href="/projects">
-              View Projects <ArrowRight className="ml-2 h-3 w-3" />
-            </Link>
-          </Button>
-          <Button variant="outline" asChild size="sm" className="text-xs font-light">
-            <Link href="#services">Learn More</Link>
-          </Button>
-        </div>
-      </section>
+      <HeroSection />
 
       <ProjectMarquee projects={projects} />
 
