@@ -95,7 +95,7 @@ export function AnimatedHeadline() {
         className={`text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight transition-all duration-300 ${currentFont.className}`}
         style={{ fontWeight: 900 }}
       >
-        Hello, I'm Sam
+        Hello, I&apos;m Sam
       </h1>
     </div>
   )
