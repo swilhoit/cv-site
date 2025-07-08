@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/theme-toggle"
 import {
@@ -10,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Menu, X } from "lucide-react"
 
 const navigation = [
   { name: "Projects", href: "/projects" },
@@ -25,6 +26,7 @@ const services = [
 
 export function Navigation() {
   const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -33,7 +35,8 @@ export function Navigation() {
           Sam Wilhoit
         </Link>
         
-        <div className="flex items-center gap-6">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-6">
           <ul className="flex gap-6 items-center">
             {navigation.map((item) => (
               <li key={item.name}>
@@ -82,7 +85,70 @@ export function Navigation() {
           
           <ThemeToggle />
         </div>
+
+        {/* Mobile Navigation */}
+        <div className="flex md:hidden items-center gap-4">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 hover:bg-accent rounded-md transition-colors"
+            aria-label="Toggle navigation menu"
+          >
+            {isOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Menu */}
+      <div
+        className={cn(
+          "md:hidden border-b bg-background/95 backdrop-blur transition-all duration-300 overflow-hidden",
+          isOpen ? "max-h-96" : "max-h-0"
+        )}
+      >
+        <div className="container py-4 space-y-3">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "block font-mono font-extralight uppercase tracking-[0.2em] text-sm py-2 transition-colors hover:text-primary",
+                pathname === item.href
+                  ? "text-foreground"
+                  : "text-muted-foreground"
+              )}
+            >
+              {item.name}
+            </Link>
+          ))}
+          
+          <div className="py-2 space-y-3">
+            <div className="font-mono font-extralight uppercase tracking-[0.2em] text-xs text-muted-foreground">
+              Services
+            </div>
+            {services.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className={cn(
+                  "block font-mono font-extralight uppercase tracking-[0.15em] text-sm py-1 pl-4 transition-colors hover:text-primary",
+                  pathname === item.href
+                    ? "text-foreground"
+                    : "text-muted-foreground"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
     </header>
   )
 }
