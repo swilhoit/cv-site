@@ -44,9 +44,9 @@ export function GridBackground() {
       const driftY = Math.cos(time * 0.00015) * 30
       ctx.translate(driftX, driftY)
       
-      // Lighter lines in light mode, darker in dark mode
+      // Earth tone lines in light mode, off-white in dark mode
       const isDark = document.documentElement.classList.contains('dark')
-      ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.1)'
+      ctx.strokeStyle = isDark ? 'rgba(214, 196, 186, 0.15)' : 'rgba(102, 77, 64, 0.1)'
       ctx.lineWidth = isDark ? 0.5 : 0.5
       
       // Calculate visible grid bounds
