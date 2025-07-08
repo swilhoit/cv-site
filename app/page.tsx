@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
@@ -7,11 +8,20 @@ export default function HomePage() {
   return (
     <div className="container py-10">
       <section className="flex flex-col items-center text-center space-y-12 py-32">
+        <div className="relative w-32 h-32 rounded-full overflow-hidden mb-8">
+          <Image
+            src="https://picsum.photos/seed/samwilhoit/400/400"
+            alt="Sam Wilhoit"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extralight tracking-wide">
-          Designer. Developer. Growth Strategist.
+          Building brands, products, and digital experiences
         </h1>
         <p className="text-sm text-muted-foreground max-w-[600px] font-light leading-loose">
-          Bridging creativity and technology to build meaningful digital experiences
+          Designer, developer, and growth strategist creating meaningful solutions at the intersection of creativity and technology
         </p>
         <div className="flex gap-4">
           <Button asChild size="sm" className="text-xs font-light">

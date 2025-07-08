@@ -149,12 +149,12 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
                   <TableCell>
                     <div className="flex flex-wrap gap-1">
                       {project.technologies?.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs bg-stone-50 dark:bg-stone-900/50">
+                        <Badge key={tech} variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50">
                           {tech}
                         </Badge>
                       ))}
                       {project.technologies?.length > 3 && (
-                        <Badge variant="outline" className="text-xs bg-stone-50 dark:bg-stone-900/50">
+                        <Badge variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50">
                           +{project.technologies.length - 3}
                         </Badge>
                       )}
@@ -194,12 +194,12 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs bg-stone-50 dark:bg-stone-900/50">
+                        <Badge key={tech} variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50">
                           {tech}
                         </Badge>
                       ))}
                       {project.technologies.length > 3 && (
-                        <Badge variant="outline" className="text-xs bg-stone-50 dark:bg-stone-900/50">
+                        <Badge variant="outline" className="text-xs font-mono font-extralight uppercase tracking-wider bg-stone-50 dark:bg-stone-900/50">
                           +{project.technologies.length - 3}
                         </Badge>
                       )}
