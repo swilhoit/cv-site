@@ -23,43 +23,110 @@ export function GridBackground() {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
+      // Save the current transformation matrix
+      ctx.save()
+      
       // Grid parameters
-      const gridSize = 50
-      const cols = Math.ceil(canvas.width / gridSize) + 2
-      const rows = Math.ceil(canvas.height / gridSize) + 2
+      const gridSize = 60
+      const centerX = canvas.width / 2
+      const centerY = canvas.height / 2
+      
+      // Apply transformations
+      ctx.translate(centerX, centerY)
+      
+      // Z-axis rotation simulation
+      const rotationZ = Math.sin(time * 0.0001) * 0.1
+      ctx.rotate(rotationZ)
+      
+      // Drift effect
+      const driftX = Math.sin(time * 0.0002) * 50
+      const driftY = Math.cos(time * 0.00015) * 30
+      ctx.translate(driftX, driftY)
       
       // More contrasted colors
       const isDark = document.documentElement.classList.contains('dark')
       ctx.strokeStyle = isDark ? 'rgba(120, 120, 120, 0.3)' : 'rgba(80, 80, 80, 0.4)'
       ctx.lineWidth = isDark ? 0.5 : 0.7
-
-      // Draw animated grid with slow wave
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
+      
+      // Calculate visible grid bounds
+      const gridBounds = Math.max(canvas.width, canvas.height) * 1.5
+      const startGrid = -Math.ceil(gridBounds / gridSize)
+      const endGrid = Math.ceil(gridBounds / gridSize)
+      
+      // Draw grid with melting effect
+      for (let i = startGrid; i <= endGrid; i++) {
+        for (let j = startGrid; j <= endGrid; j++) {
           const x = i * gridSize
           const y = j * gridSize
           
-          // Slow wave animation
-          const waveX = Math.sin(time * 0.0003 + i * 0.1 + j * 0.05) * 10
-          const waveY = Math.cos(time * 0.0004 + j * 0.1 + i * 0.05) * 10
+          // Distance from center for effects
+          const distFromCenter = Math.sqrt(x * x + y * y)
+          const normalizedDist = distFromCenter / (gridBounds * 0.7)
           
-          // Draw horizontal lines
-          if (i < cols - 1) {
+          // Melting effect - more pronounced at edges
+          const meltAmount = normalizedDist * 20
+          const meltY = Math.sin(time * 0.001 + i * 0.3) * meltAmount
+          const meltX = Math.cos(time * 0.0008 + j * 0.2) * meltAmount * 0.5
+          
+          // Wave effect
+          const waveX = Math.sin(time * 0.0003 + i * 0.1 + j * 0.05) * 5
+          const waveY = Math.cos(time * 0.0004 + j * 0.1 + i * 0.05) * 5
+          
+          // Combine effects
+          const finalX = x + waveX + meltX
+          const finalY = y + waveY + meltY
+          
+          // Opacity based on distance
+          const opacity = Math.max(0.1, 1 - normalizedDist * 0.8)
+          ctx.globalAlpha = opacity
+          
+          // Draw horizontal lines with bezier curves for melting
+          if (i < endGrid) {
+            const nextX = finalX + gridSize
+            const nextMeltY = Math.sin(time * 0.001 + (i + 1) * 0.3) * meltAmount
+            const nextWaveY = Math.cos(time * 0.0004 + j * 0.1 + (i + 1) * 0.05) * 5
+            const nextY = y + nextWaveY + nextMeltY
+            
             ctx.beginPath()
-            ctx.moveTo(x + waveX, y + waveY)
-            ctx.lineTo(x + gridSize + waveX, y + waveY)
+            ctx.moveTo(finalX, finalY)
+            
+            // Add melting drip effect
+            const controlY = finalY + Math.sin(time * 0.002 + i * j) * meltAmount * 0.5
+            ctx.quadraticCurveTo(
+              finalX + gridSize * 0.5, 
+              controlY, 
+              nextX, 
+              nextY
+            )
             ctx.stroke()
           }
           
-          // Draw vertical lines
-          if (j < rows - 1) {
+          // Draw vertical lines with melting
+          if (j < endGrid) {
+            const nextY = finalY + gridSize
+            const nextMeltX = Math.cos(time * 0.0008 + (j + 1) * 0.2) * meltAmount * 0.5
+            const nextWaveX = Math.sin(time * 0.0003 + i * 0.1 + (j + 1) * 0.05) * 5
+            const nextX = x + nextWaveX + nextMeltX
+            
             ctx.beginPath()
-            ctx.moveTo(x + waveX, y + waveY)
-            ctx.lineTo(x + waveX, y + gridSize + waveY)
+            ctx.moveTo(finalX, finalY)
+            
+            // Add melting drip effect
+            const controlX = finalX + Math.cos(time * 0.002 + i * j) * meltAmount * 0.3
+            ctx.quadraticCurveTo(
+              controlX, 
+              finalY + gridSize * 0.5, 
+              nextX, 
+              nextY
+            )
             ctx.stroke()
           }
         }
       }
+      
+      // Restore the transformation matrix
+      ctx.restore()
+      ctx.globalAlpha = 1
 
       time += 16
       animationFrameId = requestAnimationFrame(draw)
