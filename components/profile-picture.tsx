@@ -1,10 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 export function ProfilePicture() {
   const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    // Push down the navigation when marquee is visible
+    const nav = document.querySelector('header')
+    if (nav) {
+      if (isHovered) {
+        nav.style.marginTop = '40px'
+        nav.style.transition = 'margin-top 500ms ease'
+      } else {
+        nav.style.marginTop = '0'
+      }
+    }
+  }, [isHovered])
 
   return (
     <>
@@ -14,7 +27,7 @@ export function ProfilePicture() {
           isHovered ? 'h-10' : 'h-0'
         }`}
       >
-        <div className="animate-marquee whitespace-nowrap py-2">
+        <div className="animate-marquee-reverse whitespace-nowrap py-2">
           <span className="mx-4 text-sm font-mono font-extralight uppercase tracking-[0.2em]">
             Schedule a call with me here • Available for new projects • Let&apos;s work together • 
           </span>
