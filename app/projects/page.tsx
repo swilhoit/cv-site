@@ -27,8 +27,8 @@ export default async function ProjectsPage({
 
   return (
     <div className="container py-10">
-      <section className="max-w-4xl mx-auto text-center py-32">
-        <h1 className="text-2xl sm:text-3xl font-extralight tracking-wide mb-8">
+      <section className="max-w-4xl mx-auto text-center py-16">
+        <h1 className="text-2xl sm:text-3xl font-extralight tracking-wide mb-4">
           {category ? `${category.charAt(0).toUpperCase() + category.slice(1)} Projects` : 'All Projects'}
         </h1>
         <p className="text-sm text-muted-foreground font-light leading-relaxed">

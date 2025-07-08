@@ -74,6 +74,10 @@
     @apply font-light text-sm leading-relaxed;
   }
   
+  a {
+    @apply font-sans font-light;
+  }
+  
   .nav-item {
     @apply font-mono font-extralight uppercase tracking-[0.2em] text-xs;
   }

@@ -4,6 +4,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/navigation"
 import { PageTransition } from "@/components/page-transition"
+import { GridBackground } from "@/components/grid-background"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <GridBackground />
           <Navigation />
           <main className="min-h-screen px-4 md:px-8">
             <PageTransition>{children}</PageTransition>

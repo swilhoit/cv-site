@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { LayoutGrid, List } from "lucide-react"
+import { cn } from "@/lib/utils"
 import type { Image as SanityImage } from "sanity"
 
 interface Project {
@@ -60,24 +61,30 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
         <div className="mb-8">
           <h3 className="font-mono font-extralight uppercase tracking-[0.2em] text-xs mb-4">Filter by Technology</h3>
           <div className="flex flex-wrap gap-2">
-            <Button
-              variant={selectedTech === null ? "default" : "outline"}
-              size="sm"
+            <button
               onClick={() => setSelectedTech(null)}
-              className="text-xs"
+              className={cn(
+                "px-3 py-1 text-xs font-mono font-extralight uppercase tracking-wider border rounded-full transition-colors",
+                selectedTech === null 
+                  ? "bg-primary text-primary-foreground" 
+                  : "bg-stone-50 dark:bg-stone-900/50 hover:bg-stone-100 dark:hover:bg-stone-800/50"
+              )}
             >
               All
-            </Button>
+            </button>
             {allTechnologies.map((tech) => (
-              <Button
+              <button
                 key={tech}
-                variant={selectedTech === tech ? "default" : "outline"}
-                size="sm"
                 onClick={() => setSelectedTech(tech)}
-                className="text-xs"
+                className={cn(
+                  "px-3 py-1 text-xs font-mono font-extralight uppercase tracking-wider border rounded-full transition-colors",
+                  selectedTech === tech 
+                    ? "bg-primary text-primary-foreground" 
+                    : "bg-stone-50 dark:bg-stone-900/50 hover:bg-stone-100 dark:hover:bg-stone-800/50"
+                )}
               >
                 {tech}
-              </Button>
+              </button>
             ))}
           </div>
         </div>
