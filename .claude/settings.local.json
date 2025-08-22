@@ -30,7 +30,8 @@
       "Bash(sed:*)",
       "Bash(true)",
       "Bash(mkdir:*)",
-      "Bash(npm create:*)"
+      "Bash(npm create:*)",
+      "Bash(SANITY_AUTH_TOKEN=skViLVEBlR9d9jQrEZF0ZRLSPvcEIb7z0f05W5Yw3YTkRn9j586fmjd5nrd1HOPDlLouIn93dngMqZffHQYixK9Ym0o2c7PIE3247hac0MGR9QGWKsdugxBShnAkL6fiKWKI5lG6SlaUpnTMzRS3SxKDu4l2XAwG3aNe9EyJgpHvMKU7aRrO node scripts/populate-projects.mjs)"
     ],
     "deny": []
   }

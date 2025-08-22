@@ -47,7 +47,7 @@ export default function RootLayout({
           <CustomCursor />
           <GridBackground />
           <Navigation />
-          <main className="min-h-screen">
+          <main className="min-h-screen pt-20">
             <PageTransition>{children}</PageTransition>
           </main>
         </ThemeProvider>

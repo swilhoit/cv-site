@@ -107,7 +107,7 @@ export function PortfolioGallery() {
   }, [])
 
   return (
-    <div className="grid grid-cols-2 gap-4 p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
       {projects.map((project, index) => (
         <Link
           key={project._id}

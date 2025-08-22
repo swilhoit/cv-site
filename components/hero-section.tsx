@@ -7,60 +7,43 @@ import { ArrowRight } from 'lucide-react'
 
 export function HeroSection() {
   return (
-    <>
-      {/* Top Marquee Banner - always visible */}
-      <div
-        className="fixed top-0 left-0 right-0 z-[70] h-10 bg-gradient-to-r from-blue-50/70 to-blue-100/70 dark:from-blue-950/15 dark:to-blue-950/15 overflow-hidden border-b border-border"
-        style={{ margin: 0 }}
-      >
-        <div className="animate-marquee-reverse whitespace-nowrap py-2">
-          <span className="mx-4 text-sm font-mono font-extralight uppercase tracking-[0.2em]">
-            Schedule a call with me here • Available for new projects • Let&apos;s work together • 
-          </span>
-          <span className="mx-4 text-sm font-mono font-extralight uppercase tracking-[0.2em]">
-            Schedule a call with me here • Available for new projects • Let&apos;s work together • 
-          </span>
-        </div>
-      </div>
-
-      {/* Hero Content - left aligned */}
-      <div className="space-y-8">
-        {/* Profile Picture */}
-        <div className="relative w-32 h-32 rounded-full overflow-hidden">
-          <Image
-            src="https://picsum.photos/seed/samwilhoit/400/400"
-            alt="Sam Wilhoit"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        
-        <div className="space-y-4">
-          <h1 className="font-serif text-5xl md:text-6xl font-normal">
-            Sam Wilhoit
-          </h1>
-          
-          <p className="text-xl md:text-2xl font-light max-w-[500px]">
-            Currently Product Design Lead at Geo.studio and CMO of Intercept.club
+    <div className="space-y-8">
+        <div className="space-y-6">
+          <p className="text-3xl md:text-5xl font-light max-w-[900px] leading-relaxed">
+            Currently Product Design Lead at Geo.studio and CMO of Intercept.club, living in Los Angeles
           </p>
           
-          <p className="text-lg md:text-xl text-muted-foreground font-light">
-            Living in Los Angeles
-          </p>
+          {/* Bullet Points */}
+          <ul className="space-y-5 text-3xl md:text-4xl font-light pt-8">
+            <li className="flex items-center gap-4">
+              <span className="text-5xl md:text-6xl">•</span>
+              <span>Product & Brand Design</span>
+            </li>
+            <li className="flex items-center gap-4">
+              <span className="text-5xl md:text-6xl">•</span>
+              <span>Executive Dashboards</span>
+            </li>
+            <li className="flex items-center gap-4">
+              <span className="text-5xl md:text-6xl">•</span>
+              <span>Growth Marketing</span>
+            </li>
+            <li className="flex items-center gap-4">
+              <span className="text-5xl md:text-6xl">•</span>
+              <span>Web Development</span>
+            </li>
+          </ul>
         </div>
         
-        <div className="flex gap-4">
-          <Button asChild size="default" className="text-base font-light">
+        <div className="flex gap-6">
+          <Button asChild size="lg" className="text-xl md:text-2xl font-light px-10 py-7">
             <Link href="/projects">
-              View Projects <ArrowRight className="ml-2 h-4 w-4" />
+              View Projects <ArrowRight className="ml-3 h-6 w-6" />
             </Link>
           </Button>
-          <Button variant="outline" asChild size="default" className="text-base font-light">
-            <Link href="/about">Learn More</Link>
+          <Button variant="outline" asChild size="lg" className="text-xl md:text-2xl font-light px-10 py-7">
+            <Link href="/about">About Me</Link>
           </Button>
         </div>
-      </div>
-    </>
+    </div>
   )
 }

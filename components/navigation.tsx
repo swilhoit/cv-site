@@ -30,21 +30,21 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-10 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container flex h-16 items-center justify-between">
-        <Link href="/" className="font-serif text-2xl font-normal">
+    <header className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-20">
+      <nav className="flex h-full items-center justify-between px-8 md:px-16 lg:px-24">
+        <Link href="/" className="font-serif text-3xl md:text-4xl font-normal">
           Sam Wilhoit
         </Link>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          <ul className="flex gap-6 items-center">
+        <div className="hidden md:flex items-center gap-12 lg:gap-16">
+          <ul className="flex gap-12 lg:gap-16 items-center">
             {navigation.map((item) => (
               <li key={item.name}>
                 <Link
                   href={item.href}
                   className={cn(
-                    "font-mono font-extralight uppercase tracking-[0.2em] text-xs transition-colors hover:text-primary",
+                    "font-mono font-light uppercase tracking-[0.15em] text-base md:text-lg transition-colors hover:text-primary",
                     pathname === item.href
                       ? "text-foreground"
                       : "text-muted-foreground"
@@ -57,13 +57,13 @@ export function Navigation() {
             <li>
               <DropdownMenu>
                 <DropdownMenuTrigger className={cn(
-                  "font-mono font-extralight uppercase tracking-[0.2em] text-xs transition-colors hover:text-primary flex items-center gap-1",
+                  "font-mono font-light uppercase tracking-[0.15em] text-base md:text-lg transition-colors hover:text-primary flex items-center gap-1",
                   services.some(item => pathname === item.href)
                     ? "text-foreground"
                     : "text-muted-foreground"
                 )}>
                   Services
-                  <ChevronDown className="h-3 w-3" />
+                  <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   {services.map((item) => (
@@ -71,8 +71,8 @@ export function Navigation() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "font-mono font-extralight uppercase tracking-[0.15em] text-xs",
-                          pathname === item.href && "font-light"
+                          "font-mono font-light uppercase tracking-[0.1em] text-base",
+                          pathname === item.href && "font-normal"
                         )}
                       >
                         {item.name}
@@ -111,7 +111,7 @@ export function Navigation() {
           isOpen ? "max-h-96" : "max-h-0"
         )}
       >
-        <div className="container py-4 space-y-3">
+        <div className="px-8 py-4 space-y-3">
           {navigation.map((item) => (
             <Link
               key={item.name}
