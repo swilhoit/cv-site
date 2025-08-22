@@ -30,9 +30,9 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-10 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container flex h-16 items-center justify-between">
-        <Link href="/" className="font-mono font-extralight uppercase tracking-[0.3em] text-xs">
+        <Link href="/" className="font-serif text-2xl font-normal">
           Sam Wilhoit
         </Link>
         

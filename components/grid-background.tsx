@@ -44,9 +44,9 @@ export function GridBackground() {
       const driftY = Math.cos(time * 0.00015) * 30
       ctx.translate(driftX, driftY)
       
-      // Earthier tones for grid lines
+      // Blue grid lines for light mode, keep dark mode as is
       const isDark = document.documentElement.classList.contains('dark')
-      ctx.strokeStyle = isDark ? 'rgba(222, 209, 194, 0.12)' : 'rgba(89, 71, 56, 0.08)'
+      ctx.strokeStyle = isDark ? 'rgba(222, 209, 194, 0.12)' : 'rgba(0, 0, 255, 0.08)'
       ctx.lineWidth = isDark ? 0.5 : 0.5
       
       // Calculate visible grid bounds
@@ -71,9 +71,9 @@ export function GridBackground() {
           const mouseDistY = y - mouseWorldY
           const mouseDist = Math.sqrt(mouseDistX * mouseDistX + mouseDistY * mouseDistY)
           
-          // Bubble parameters - much larger
-          const bubbleRadius = 400
-          const bubbleStrength = 200
+          // Bubble parameters - more subtle
+          const bubbleRadius = 250
+          const bubbleStrength = 80
           
           // Calculate bubble effect
           let warpX = 0
@@ -87,8 +87,8 @@ export function GridBackground() {
             const cosineDistance = Math.cos(normalizedDist * Math.PI * 0.5)
             const pushStrength = cosineDistance * cosineDistance * bubbleStrength
             
-            // Calculate spherical bulge - more pronounced 3D effect
-            const sphericalHeight = Math.sqrt(1 - normalizedDist * normalizedDist) * bubbleStrength * 0.8
+            // Calculate spherical bulge - subtle 3D effect
+            const sphericalHeight = Math.sqrt(1 - normalizedDist * normalizedDist) * bubbleStrength * 0.5
             
             // Push lines away from cursor center with spherical displacement
             if (mouseDist > 0) {
@@ -98,11 +98,11 @@ export function GridBackground() {
               
               // Add vertical component for 3D bulge effect
               // This makes the bubble appear to rise out of the grid
-              const bulgeAmount = sphericalHeight * 0.5
+              const bulgeAmount = sphericalHeight * 0.3
               warpY -= bulgeAmount * (1 - normalizedDist)
             } else {
               // At exact center, maximum vertical displacement
-              warpY = -bubbleStrength * 1.2
+              warpY = -bubbleStrength * 0.8
             }
           }
           

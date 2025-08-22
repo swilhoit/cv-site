@@ -28,7 +28,9 @@
       "Bash(grep:*)",
       "Bash(mv:*)",
       "Bash(sed:*)",
-      "Bash(true)"
+      "Bash(true)",
+      "Bash(mkdir:*)",
+      "Bash(npm create:*)"
     ],
     "deny": []
   }

@@ -92,25 +92,25 @@
 
 @layer base {
   :root {
-    --background: 35 25% 96%;
-    --foreground: 25 20% 22%;
-    --card: 35 25% 96%;
-    --card-foreground: 25 20% 22%;
-    --popover: 35 25% 96%;
-    --popover-foreground: 25 20% 22%;
-    --primary: 25 20% 22%;
-    --primary-foreground: 35 25% 96%;
-    --secondary: 30 18% 88%;
-    --secondary-foreground: 25 20% 22%;
-    --muted: 30 18% 88%;
-    --muted-foreground: 25 15% 40%;
-    --accent: 30 18% 88%;
-    --accent-foreground: 25 20% 22%;
+    --background: 0 0% 100%;
+    --foreground: 240 100% 50%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 100% 50%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 100% 50%;
+    --primary: 240 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 100% 95%;
+    --secondary-foreground: 240 100% 50%;
+    --muted: 240 100% 95%;
+    --muted-foreground: 240 100% 40%;
+    --accent: 240 100% 95%;
+    --accent-foreground: 240 100% 50%;
     --destructive: 0 60% 50%;
-    --destructive-foreground: 35 25% 96%;
-    --border: 30 20% 82%;
-    --input: 30 20% 82%;
-    --ring: 25 20% 22%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 100% 90%;
+    --input: 240 100% 90%;
+    --ring: 240 100% 50%;
     --radius: 0.5rem;
   }
 
@@ -156,21 +156,25 @@
     }
   }
   
-  /* Typography styles - Minimalist */
+  /* Typography styles - Serif headings, larger text */
   h1 {
-    @apply font-sans font-extralight tracking-wide;
+    @apply font-serif font-normal tracking-tight text-5xl md:text-6xl;
   }
   
   h2 {
-    @apply font-mono font-extralight uppercase tracking-[0.2em] text-xs;
+    @apply font-serif font-normal tracking-tight text-3xl md:text-4xl;
   }
   
-  h3, h4, h5, h6 {
-    @apply font-mono font-extralight uppercase tracking-[0.15em] text-xs;
+  h3 {
+    @apply font-serif font-normal tracking-tight text-2xl md:text-3xl;
+  }
+  
+  h4, h5, h6 {
+    @apply font-serif font-normal tracking-tight text-xl md:text-2xl;
   }
   
   p {
-    @apply font-light text-sm leading-relaxed;
+    @apply font-sans font-light text-base md:text-lg leading-relaxed;
   }
   
   a {
@@ -178,10 +182,10 @@
   }
   
   .nav-item {
-    @apply font-mono font-extralight uppercase tracking-[0.2em] text-xs;
+    @apply font-mono font-extralight uppercase tracking-[0.2em] text-sm;
   }
   
   .section-title {
-    @apply font-mono font-extralight uppercase tracking-[0.3em] text-xs;
+    @apply font-serif font-normal tracking-tight text-2xl md:text-3xl;
   }
 }

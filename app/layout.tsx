@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/navigation"
@@ -19,6 +19,12 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono"
 })
 
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-serif"
+})
+
 export const metadata: Metadata = {
   title: "Sam Wilhoit",
   description: "Designer, Developer, Growth Strategist",
@@ -31,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -41,7 +47,7 @@ export default function RootLayout({
           <CustomCursor />
           <GridBackground />
           <Navigation />
-          <main className="min-h-screen px-4 md:px-8">
+          <main className="min-h-screen">
             <PageTransition>{children}</PageTransition>
           </main>
         </ThemeProvider>

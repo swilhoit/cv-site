@@ -19,6 +19,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
       colors: {
